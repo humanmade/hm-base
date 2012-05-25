@@ -57,14 +57,14 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         '-r3^3v=w!ea]0C<WuftKn79Vm{B_>vNb*y+4u1hc] `J&MBX|d,{B(q>|qq0|N[?' );
-define( 'SECURE_AUTH_KEY',  '(^@;J`kSJ|l6l|,HtP3^W`ACdWbBj[ugC)7:mK#S>Iq`WGVUaF*;zVS~TRI$r(_K' );
-define( 'LOGGED_IN_KEY',    'U,<+%6L/X>pJf4t`S{9[2UJ,&W5_n`t4;Y8+nMv}:h@>,bcU7ea:<{7e+}+`C+$E' );
-define( 'NONCE_KEY',        'gH>,RJ;d H3?]d}T$`N-32Y:W.+BBKpI8i%A++;<`&`Lr26IaKx&NJo+wWt91}B,' );
-define( 'AUTH_SALT',        '=5skQDkX}]f1LL+am7e4Z-!$<`P#?)33jL@fy.(QJ IlGKBAc~}cf_M.=K&}{^F7' );
-define( 'SECURE_AUTH_SALT', '?Yx`jPtR{-[)3`W&Z}%X~rUfv+-K{Rj$>gWt[ZY{:.mdr`MP?@++H<yRZUYQ-4du' );
-define( 'LOGGED_IN_SALT',   '9,xpWU@DLj+k}#b>p9kVIGjgFW%jyb%qcn&%$192r]BzR06~b=D2s!WigqstK*MX' );
-define( 'NONCE_SALT',       '(Pg?dqz6^xC@+uE9]$lH|OO2mxpH1|9?:<BF*td61eP#7X>[ AgZQ?Lk?D|-nIz+' );
+define( 'AUTH_KEY',         '' );
+define( 'SECURE_AUTH_KEY',  '' );
+define( 'LOGGED_IN_KEY',    '' );
+define( 'NONCE_KEY',        '' );
+define( 'AUTH_SALT',        '' );
+define( 'SECURE_AUTH_SALT', '' );
+define( 'LOGGED_IN_SALT',   '' );
+define( 'NONCE_SALT',       '' );
 
 /**
  * WordPress Database Table prefix.
