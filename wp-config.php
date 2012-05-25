@@ -103,6 +103,10 @@ if ( ! defined( 'WP_HOME' ) )
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) );
 define( 'WP_CONTENT_URL', WP_HOME );
 
+// Set path to MU Plugins.
+define( 'WPMU_PLUGIN_DIR', dirname( __FILE__ ) . '/plugins-mu' );
+define( 'WPMU_PLUGIN_URL', WP_HOME . '/plugins-mu' );
+
 define( 'WP_DEFAULT_THEME', 'Twenty Twelve' ); 
 
 /* That's all, stop editing! Happy blogging. */
