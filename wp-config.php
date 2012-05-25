@@ -25,28 +25,36 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
 
 	define( 'HM_DEV', true );
 
-} else {
+}
 
-	// ** MySQL settings - You can get this info from your web host ** //
-	/** The name of the database for WordPress */
-	define( 'DB_NAME', 'hm-base' );
+/**
+ *	Production settings.
+ */
+
+/** The name of the database for WordPress */
+if ( ! defined( 'DB_NAME' ) )
+	define( 'DB_NAME', '' );
 
 	/** MySQL database username */
-	define( 'DB_USER', 'root' );
+if ( ! defined( 'DB_USER' ) )
+	define( 'DB_USER', '' );
 
 	/** MySQL database password */
-	define( 'DB_PASSWORD', 'root' );
+if ( ! defined( 'DB_PASSWORD' ) )
+	define( 'DB_PASSWORD', '' );
 
 	/** MySQL hostname */
-	define( 'DB_HOST', 'localhost' );
+if ( ! defined( 'DB_HOST' ) )
+	define( 'DB_HOST', '' );
 
 	/** Database Charset to use in creating database tables. */
+if ( ! defined( 'DB_CHARSET' ) )
 	define( 'DB_CHARSET', 'utf8' );
 
 	/** The Database Collate type. Don't change this if in doubt. */
+if ( ! defined( 'DB_COLLATE' ) )
 	define( 'DB_COLLATE', '' );
-	
-}
+
 
 /**
  * Authentication Unique Keys and Salts.
