@@ -99,8 +99,12 @@ define( 'WPLANG', '' );
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-if ( ! defined( 'WP_DEBUG' ) )
+if ( defined( 'HM_DEV' ) ) {
+	define( 'WP_DEBUG', true );
+	define( 'WP_DEBUG_DISPLAY', false );
+} else {
 	define( 'WP_DEBUG', false );
+}
 	
 if ( ! defined( 'WP_SITEURL' ) )
 	define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress' );
