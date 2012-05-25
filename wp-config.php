@@ -95,13 +95,13 @@ if ( ! defined( 'WP_DEBUG' ) )
 	define( 'WP_DEBUG', false );
 	
 if ( ! defined( 'WP_SITEURL' ) )
-	define( 'WP_SITEURL', $_SERVER['HTTP_HOST'] );
+	define( 'WP_SITEURL', $_SERVER['HTTP_HOST'] . '/wordpress/' );
 
 if ( ! defined( 'WP_HOME' ) )
-	define( 'WP_HOME', $_SERVER['HTTP_HOST'] . '/wordpress/' );
+	define( 'WP_HOME', $_SERVER['HTTP_HOST'] );
 
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) );
-define( 'WP_CONTENT_URL', WP_SITEURL );
+define( 'WP_CONTENT_URL', WP_HOME );
 
 /* That's all, stop editing! Happy blogging. */
 
