@@ -1,9 +1,6 @@
 [submodule "wordpress"]
 	path = wordpress
 	url = https://github.com/WordPress/WordPress.git
-[submodule "plugins/hm-core"]
-	path = plugins/hm-core
-	url = git@github.com:humanmade/hm-core.git
 [submodule "themes/twentytwelve"]
 	path = themes/twentytwelve
 	url = https://github.com/thethemefoundry/twentytwelve.git
