@@ -5,4 +5,4 @@ upgrade/
 sitemap.xml
 sitemap.xml.gz
 uploads/
-local-config.php
+wp-config-local.php

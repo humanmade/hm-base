@@ -19,9 +19,9 @@
  * Don't edit this file directly, instead, create a local-config.php file and add your database
  * settings and defines in there. This file contains the production settings
  */
-if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
+if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
 
-	include( dirname( __FILE__ ) . '/local-config.php' );
+	include( dirname( __FILE__ ) . '/wp-config-local.php' );
 
 	define( 'HM_DEV', true );
 
