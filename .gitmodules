@@ -4,3 +4,6 @@
 [submodule "themes/twentytwelve"]
 	path = themes/twentytwelve
 	url = https://github.com/thethemefoundry/twentytwelve.git
+[submodule "plugins-mu/hm-core"]
+	path = plugins-mu/hm-core
+	url = git@github.com:humanmade/hm-core.git
