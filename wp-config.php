@@ -103,6 +103,8 @@ if ( ! defined( 'WP_HOME' ) )
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) );
 define( 'WP_CONTENT_URL', WP_HOME );
 
+define( 'WP_DEFAULT_THEME', 'Twenty Twelve' ); 
+
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
