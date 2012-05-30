@@ -12,8 +12,8 @@
 	
 	add_action( 'init', function() {	
 		
-		if ( current_theme_supports( 'tlc-transients' ) ) 
-			require_once (  WPMU_PLUGIN_DIR . '/tlc-transients/tlc-transients.php' );	
+	if ( current_theme_supports( 'tlc-transients' ) )
+		require_once (  WPMU_PLUGIN_DIR . '/tlc-transients/tlc-transients.php' );
 		
 	} );
 	
