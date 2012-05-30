@@ -10,3 +10,6 @@
 [submodule "content/plugins-mu/tlc-transients"]
 	path = content/plugins-mu/tlc-transients
 	url = https://github.com/markjaquith/WP-TLC-Transients.git
+[submodule "content/plugins/twentytwelve"]
+	path = content/plugins/twentytwelve
+	url = https://github.com/thethemefoundry/twentytwelve.git
