@@ -3,10 +3,10 @@
 	url = https://github.com/WordPress/WordPress.git
 [submodule "content/plugins-mu/hm-core"]
 	path = content/plugins-mu/hm-core
-	url = git@github.com:humanmade/hm-core.git
+	url = git://github.com/humanmade/hm-core.git
 [submodule "content/plugins-mu/wpthumb"]
 	path = content/plugins-mu/wpthumb
-	url = git@github.com:humanmade/WPThumb.git
+	url = git://github.com/humanmade/WPThumb.git
 [submodule "content/plugins-mu/tlc-transients"]
 	path = content/plugins-mu/tlc-transients
 	url = https://github.com/markjaquith/WP-TLC-Transients.git
