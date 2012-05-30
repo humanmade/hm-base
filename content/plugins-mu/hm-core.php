@@ -7,4 +7,5 @@
 	Author URI: http://hmn.md/
 	*/
 	
-	require_once ( 'hm-core/hm-core.plugin.php' );
+	if ( ! function_exists( 'hm' ) )
+		require_once ( WPMU_PLUGIN_DIR . '/hm-core/hm-core.plugin.php' );
