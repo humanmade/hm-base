@@ -13,3 +13,6 @@
 [submodule "content/themes/twentytwelve"]
 	path = content/themes/twentytwelve
 	url = https://github.com/thethemefoundry/twentytwelve.git
+[submodule "content/plugins-mu/custom-meta-boxes-and-fields-for-wordpress"]
+	path = content/plugins-mu/custom-meta-boxes-and-fields-for-wordpress
+	url = git://github.com/humanmade/Custom-Metaboxes-and-Fields-for-WordPress.git
