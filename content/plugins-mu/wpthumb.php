@@ -1,3 +1,11 @@
 <?php
 
+/*
+Plugin Name: WP Thumb
+Plugin URI: https://github.com/humanmade/WPThumb
+Description: An on-demand image generation replacement for WordPress' image resizing.
+Author: Human Made Limited
+Author URI: http://www.hmn.md/
+*/
+
 	require_once ( 'wpthumb/wpthumb.php' );
