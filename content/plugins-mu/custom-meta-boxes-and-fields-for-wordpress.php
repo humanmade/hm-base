@@ -7,6 +7,9 @@
 	Author URI: https://github.com/humanmade/Custom-Metaboxes-and-Fields-for-WordPress
 	*/
 	
+	if( ! file_exists( WPMU_PLUGIN_DIR . '/custom-meta-boxes-and-fields-for-wordpress/init.php' ) )
+		die( 'Custom Metaboxes and Fields plugin not found. If this is not required, delete <code>' . __FILE__ );
+	
 	// Load Custom Metaboxes and Fields for WordPress
 	function hm_initialize_cmb_meta_boxes() {
 		include_once(   WPMU_PLUGIN_DIR . '/custom-meta-boxes-and-fields-for-wordpress/init.php' );
