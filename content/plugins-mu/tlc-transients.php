@@ -10,5 +10,10 @@
 	if( ! file_exists(  WPMU_PLUGIN_DIR . '/tlc-transients/tlc-transients.php' ) )	
 		die( 'TLC Transient plugin not found. If this is not required, delete <code>' . __FILE__ );
 	
-	if ( current_theme_supports( 'tlc-transients' ) )
-		require_once (  WPMU_PLUGIN_DIR . '/tlc-transients/tlc-transients.php' );
+	add_action( 'init', function() {	
+		
+		if ( current_theme_supports( 'tlc-transients' ) ) 
+			require_once (  WPMU_PLUGIN_DIR . '/tlc-transients/tlc-transients.php' );	
+		
+	} );
+	
