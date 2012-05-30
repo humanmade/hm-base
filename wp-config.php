@@ -112,7 +112,7 @@ if ( ! defined( 'WP_SITEURL' ) )
 if ( ! defined( 'WP_HOME' ) )
 	define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] );
 
-define( 'WP_CONTENT_DIR', dirname( __FILE__ ) );
+define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
 define( 'WP_CONTENT_URL', WP_HOME );
 
 // Set path to MU Plugins.
