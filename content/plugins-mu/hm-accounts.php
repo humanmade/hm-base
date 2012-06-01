@@ -2,12 +2,12 @@
 
 	/*
 	Plugin Name: HM Accounts
-	Description: 
+	Description:
 	Author: Human Made Limited
 	Author URI: http://hmn.md/
 	*/
 
-	if( ! file_exists( WPMU_PLUGIN_DIR . '/hm-accounts.php' ) )
+	if ( ! file_exists( WPMU_PLUGIN_DIR . '/hm-accounts.php' ) )
 		die( 'HM Accounts plugin not found. If this is not required, delete <code>' . __FILE__ );
 
 	// Only load HM Accounts if it's enabled

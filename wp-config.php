@@ -105,7 +105,7 @@ if ( defined( 'HM_DEV' ) && HM_DEV ) {
 } else {
 	define( 'WP_DEBUG', false );
 }
-	
+
 if ( ! defined( 'WP_SITEURL' ) )
 	define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress' );
 
@@ -119,7 +119,7 @@ define( 'WP_CONTENT_URL', WP_HOME . '/content' );
 define( 'WPMU_PLUGIN_DIR', dirname( __FILE__ ) . '/content/plugins-mu' );
 define( 'WPMU_PLUGIN_URL', WP_HOME . '/content/plugins-mu' );
 
-define( 'WP_DEFAULT_THEME', 'Twenty Twelve' ); 
+define( 'WP_DEFAULT_THEME', 'Twenty Twelve' );
 
 /* That's all, stop editing! Happy blogging. */
 
