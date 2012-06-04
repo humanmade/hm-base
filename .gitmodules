@@ -13,9 +13,9 @@
 [submodule "content/themes/twentytwelve"]
 	path = content/themes/twentytwelve
 	url = https://github.com/thethemefoundry/twentytwelve.git
-[submodule "content/plugins-mu/custom-meta-boxes-and-fields-for-wordpress"]
-	path = content/plugins-mu/custom-meta-boxes-and-fields-for-wordpress
-	url = git://github.com/humanmade/Custom-Metaboxes-and-Fields-for-WordPress.git
+[submodule "content/plugins-mu/custom-meta-boxes"]
+	path = content/plugins-mu/custom-meta-boxes
+	url = git://github.com/humanmade/Custom-Meta-Boxes.git
 [submodule "content/plugins-mu/hm-dev"]
 	path = content/plugins-mu/hm-dev
 	url = git://github.com/humanmade/hm-dev.git
