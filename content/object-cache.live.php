@@ -341,7 +341,7 @@ class WP_Object_Cache {
 		if ( isset($memcached_servers) )
 			$buckets = $memcached_servers;
 		else
-			$buckets = array('127.0.0.1');
+			$buckets = array('127.0.0.1:11211');
 
 		reset($buckets);
 		if ( is_int(key($buckets)) )
