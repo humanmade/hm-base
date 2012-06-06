@@ -9,8 +9,10 @@ Standard project layout for Human Made Projects.
 * Initialize all the submodules <code>git submodule update --init --recursive</code>
 * Remove the HM-Base remote. <code>git remote rm origin</code>
 * Add the remote for your new project <code>git remote add origin [url]</code>
+* Push to the new remote <code>git push origin master</code>
+
 * Add your database settings. 
-	* Duplicate <code>wp-config-sample.php</code> and add your database settings. 
-	* Production settings are added to wp-config.php
+	* Local site: Duplicate <code>wp-config-sample.php</code> and rename <code>wp-config-sample.php</code>. <code>cp wp-config-sample.php wp-config-local.php</code> Add your local database settings. 
+	* Live site:  Production settings should be added to wp-config.php
 	
 Done!
