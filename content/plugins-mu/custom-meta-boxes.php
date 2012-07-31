@@ -7,11 +7,8 @@ Author: Andrew Norcross, Jared Atchison, Bill Erickson
 Author URI: https://github.com/humanmade/Custom-Meta-Boxes
 */
 
-if( ! file_exists( WPMU_PLUGIN_DIR . '/custom-meta-boxes/init.php' ) )
+if( ! file_exists( WPMU_PLUGIN_DIR . '/custom-meta-boxes/classes.fields.php' ) )
 	die( 'Custom Metaboxes and Fields plugin not found. If this is not required, delete <code>' . __FILE__ );
 
 // Load Custom Metaboxes and Fields for WordPress
-function hm_initialize_cmb_meta_boxes() {
-	include_once(   WPMU_PLUGIN_DIR . '/custom-meta-boxes/init.php' );
-}
-add_action( 'init', 'hm_initialize_cmb_meta_boxes', 9999 );
+include_once(   WPMU_PLUGIN_DIR . '/custom-meta-boxes/classes.fields.php' );
