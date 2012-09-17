@@ -115,9 +115,6 @@ if ( ! defined( 'WP_HOME' ) )
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
 define( 'WP_CONTENT_URL', WP_HOME . '/content' );
 
-// BackUpWordPress needs this otherwise ABSPATH is down.
-define( 'HMBKP_ROOT', dirname( __FILE__ ) );
-
 // Set path to MU Plugins.
 define( 'WPMU_PLUGIN_DIR', dirname( __FILE__ ) . '/content/plugins-mu' );
 define( 'WPMU_PLUGIN_URL', WP_HOME . '/content/plugins-mu' );
