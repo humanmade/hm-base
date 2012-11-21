@@ -5,9 +5,8 @@ Standard WordPress layout for Human Made projects.
 
 ### Setup Instructions.
 
-* Clone the repository <code>git clone git://github.com/humanmade/hm-base.git .</code>
-* Initialize all the submodules <code>git submodule update --init --recursive</code>
-* Remove the HM-Base remote. <code>git remote rm origin</code>
+* Clone the repository <code>git clone --recursive git://github.com/humanmade/hm-base.git .</code>
+* Remove the hm-base remote. <code>git remote rm origin</code>
 * Add the remote for your new project <code>git remote add origin [url]</code>
 * Push to the new remote <code>git push origin master</code>
 
