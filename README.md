@@ -12,7 +12,7 @@ Standard project layout for Human Made Projects.
 * Push to the new remote <code>git push origin master</code>
 
 * Add your database settings. 
-	* Local site: Duplicate <code>wp-config-sample.php</code> and rename <code>wp-config-sample.php</code>. <code>cp wp-config-sample.php wp-config-local.php</code> Add your local database settings. 
+	* Local site: Duplicate <code>wp-config-sample.php</code> and rename to <code>wp-config-local.php</code>. <code>cp wp-config-sample.php wp-config-local.php</code>, then add your local database settings. 
 	* Live site:  Production settings should be added to wp-config.php
 	
 Done!
