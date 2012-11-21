@@ -1,7 +1,7 @@
 HM-Base
 =======
 
-Standard project layout for Human Made Projects.
+Standard WordPress layout for Human Made projects.
 
 ### Setup Instructions.
 
