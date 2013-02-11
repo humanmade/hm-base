@@ -13,9 +13,6 @@
 [submodule "content/plugins-mu/custom-meta-boxes"]
 	path = content/plugins-mu/custom-meta-boxes
 	url = git://github.com/humanmade/Custom-Meta-Boxes.git
-[submodule "content/plugins-mu/hm-dev"]
-	path = content/plugins-mu/hm-dev
-	url = git://github.com/humanmade/hm-dev.git
 [submodule "content/plugins-mu/hm-accounts"]
 	path = content/plugins-mu/hm-accounts
 	url = git://github.com/humanmade/hm-accounts.git
