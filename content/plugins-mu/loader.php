@@ -4,7 +4,12 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 $loaded_plugins = array();
 
-foreach( get_plugins( '/../plugins-mu' ) as $plugin_path => $plugin ) {
+foreach ( get_plugins( '/../plugins-mu' ) as $plugin_path => $plugin ) {
+
+	// Only load HM Dev if HM_DEV is true.
+	if ( 'HM Dev' === $plugin['Name'] && ( ! defined( 'HM_DEV') || defined( 'HM_DEV' ) && false === HM_DEV ) )
+		continue;
+
 	include_once( WPMU_PLUGIN_DIR . '/' . $plugin_path );
 
 	if ( $plugin['Name'] !== 'MU Plugins Loader' )
