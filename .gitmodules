@@ -10,9 +10,6 @@
 [submodule "content/plugins-mu/tlc-transients"]
 	path = content/plugins-mu/tlc-transients
 	url = https://github.com/markjaquith/WP-TLC-Transients.git
-[submodule "content/themes/twentytwelve"]
-	path = content/themes/twentytwelve
-	url = https://github.com/thethemefoundry/twentytwelve.git
 [submodule "content/plugins-mu/custom-meta-boxes"]
 	path = content/plugins-mu/custom-meta-boxes
 	url = git://github.com/humanmade/Custom-Meta-Boxes.git
