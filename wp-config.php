@@ -23,8 +23,6 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
 
 	include( dirname( __FILE__ ) . '/wp-config-local.php' );
 
-	define( 'HM_DEV', true );
-
 }
 
 /**
@@ -100,10 +98,14 @@ define( 'WPLANG', '' );
  * in their development environments.
  */
 if ( defined( 'HM_DEV' ) && HM_DEV ) {
+
 	define( 'WP_DEBUG', true );
 	define( 'WP_DEBUG_DISPLAY', false );
+
 } else {
+
 	define( 'WP_DEBUG', false );
+
 }
 
 if ( ! defined( 'WP_SITEURL' ) )
@@ -112,6 +114,7 @@ if ( ! defined( 'WP_SITEURL' ) )
 if ( ! defined( 'WP_HOME' ) )
 	define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] );
 
+// Set path & url for Content
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
 define( 'WP_CONTENT_URL', WP_HOME . '/content' );
 

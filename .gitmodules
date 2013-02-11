@@ -1,18 +1,3 @@
 [submodule "wordpress"]
 	path = wordpress
 	url = https://github.com/WordPress/WordPress.git
-[submodule "content/plugins-mu/hm-core"]
-	path = content/plugins-mu/hm-core
-	url = git://github.com/humanmade/hm-core.git
-[submodule "content/plugins-mu/wpthumb"]
-	path = content/plugins-mu/wpthumb
-	url = git://github.com/humanmade/WPThumb.git
-[submodule "content/plugins-mu/tlc-transients"]
-	path = content/plugins-mu/tlc-transients
-	url = https://github.com/markjaquith/WP-TLC-Transients.git
-[submodule "content/plugins-mu/custom-meta-boxes"]
-	path = content/plugins-mu/custom-meta-boxes
-	url = git://github.com/humanmade/Custom-Meta-Boxes.git
-[submodule "content/plugins-mu/hm-accounts"]
-	path = content/plugins-mu/hm-accounts
-	url = git://github.com/humanmade/hm-accounts.git
