@@ -18,7 +18,7 @@ Standard WordPress layout for Human Made projects.
 	* <strong>Custom Meta Boxes</strong> <code>git submodule add https://github.com/humanmade/Custom-Meta-Boxes.git content/plugins-mu/custom-meta-boxes</code>
 	* <strong>HM Accounts</strong> <code>git submodule add https://github.com/humanmade/hm-accounts.git content/plugins-mu/hm-accounts</code>
 * Add your database settings.
-	* Local site: Rename <code>wp-config-sample.php</code> to <code>wp-config-local.php</code>. <code>mv wp-config-sample.php wp-config-local.php</code>, then add your local database settings.
+	* Local site: <code>mv wp-config-sample.php wp-config-local.php</code>, then add your local database settings.
 	* Live site:  Production settings should be added to wp-config.php
 
 Done!
