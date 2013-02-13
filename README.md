@@ -22,6 +22,7 @@ Standard WordPress layout for Human Made projects.
 	* **Term Meta** `git submodule add git@github.com:humanmade/termmeta content/plugins-mu/termmeta`
 	* **HM Rewrites** `git submodule add git@github.com:humanmade/hm-rewrite content/plugins-mu/hm-rewrite`
 
+
 * Add your database settings.
 
 	* Local site: `mv wp-config-sample.php wp-config-local.php`, then add your local database settings.
