@@ -19,11 +19,8 @@
  * Don't edit this file directly, instead, create a local-config.php file and add your database
  * settings and defines in there. This file contains the production settings
  */
-if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
-
+if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) 
 	include( dirname( __FILE__ ) . '/wp-config-local.php' );
-
-}
 
 /**
  *	Production settings.
@@ -97,16 +94,11 @@ define( 'WPLANG', '' );
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-if ( defined( 'HM_DEV' ) && HM_DEV ) {
-
+if ( defined( 'HM_DEV' ) && HM_DEV )
 	define( 'WP_DEBUG', true );
-	define( 'WP_DEBUG_DISPLAY', false );
 
-} else {
-
+else
 	define( 'WP_DEBUG', false );
-
-}
 
 if ( ! defined( 'WP_SITEURL' ) )
 	define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress' );
