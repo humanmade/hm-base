@@ -4,7 +4,9 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 $loaded_plugins = array();
 
-foreach ( get_plugins( WPMU_PLUGIN_DIR ) as $plugin_path => $plugin ) {
+//Loop through all plugins in MU Plugins directory.
+//Note get_plugins requires path relative to plugins dir. 
+foreach ( get_plugins( '/../' . basename( __DIR__ ) ) as $plugin_path => $plugin ) {
 
 	// Only load HM Dev if HM_DEV is true.
 	if ( 'HM Dev' === $plugin['Name'] && ( ! defined( 'HM_DEV') || defined( 'HM_DEV' ) && false === HM_DEV ) )
