@@ -8,4 +8,4 @@ define( 'DB_HOST', 'database_host_here' );
 define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress' );
 define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] );
 
-define( 'HM_DEV', true ); // Enable/disable HM Dev Pluign. Also Enables/disables wp_debug
+define( 'HM_DEV', true ); // Enable/disable HM Dev Plugin. Also Enables/disables wp_debug
