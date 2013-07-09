@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 				options: {
 					nospawn: true,
 				},
-				tasks: ['sass', 'livereload']
+				tasks: [ 'sass' ]
 			},
 			scripts: {
 				files: [ 
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 				options: {
 					nospawn: true,
 				},
-				tasks: ['concat', 'uglify']
+				tasks: [ 'concat', 'uglify' ]
 			}
 		},
 
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
 					style: 'compressed'
 				},
 				files: {
-					'<%= pkg.themeDirectory %>/assets/css/<%= pkg.name %>.js.min.css': '<%= pkg.themeDirectory %>/assets/css/src/style.scss',
+					'<%= pkg.themeDirectory %>/assets/css/<%= pkg.name %>.min.css': '<%= pkg.themeDirectory %>/assets/css/src/style.scss',
 				}
 			},
 			dev: {
@@ -68,7 +68,7 @@ module.exports = function(grunt) {
 					lineNumbers: true
 				},
 				files: {
-					'<%= pkg.themeDirectory %>/assets/css/<%= pkg.name %>.js.css': '<%= pkg.themeDirectory %>/assets/css/src/style.scss',
+					'<%= pkg.themeDirectory %>/assets/css/<%= pkg.name %>.css': '<%= pkg.themeDirectory %>/assets/css/src/style.scss',
 				}
 			}
 		}
@@ -79,9 +79,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-livereload');
 
 	// Default task(s).
 	grunt.registerTask( 'default', ['concat', 'uglify', 'sass' ] );
+
+	grunt.registerTask( 'build-live', ['concat', 'uglify'] );
+
 
 };
