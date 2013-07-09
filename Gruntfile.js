@@ -53,22 +53,24 @@ module.exports = function(grunt) {
 		},
 
 		sass: {
-			dist: {
-				options: {
-					style: 'compressed'
+			theme: {
+				dist: {
+					options: {
+						style: 'compressed'
+					},
+					files: {
+						'<%= pkg.themeDirectory %>/assets/css/<%= pkg.name %>.min.css': '<%= pkg.themeDirectory %>/assets/css/src/style.scss',
+					}
 				},
-				files: {
-					'<%= pkg.themeDirectory %>/assets/css/<%= pkg.name %>.min.css': '<%= pkg.themeDirectory %>/assets/css/src/style.scss',
-				}
-			},
-			dev: {
-				options: {
-					style: 'expanded',
-					debugInfo: true,
-					lineNumbers: true
-				},
-				files: {
-					'<%= pkg.themeDirectory %>/assets/css/<%= pkg.name %>.css': '<%= pkg.themeDirectory %>/assets/css/src/style.scss',
+				dev: {
+					options: {
+						style: 'expanded',
+						debugInfo: true,
+						lineNumbers: true
+					},
+					files: {
+						'<%= pkg.themeDirectory %>/assets/css/<%= pkg.name %>.css': '<%= pkg.themeDirectory %>/assets/css/src/style.scss',
+					}
 				}
 			}
 		}
