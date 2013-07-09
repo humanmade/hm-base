@@ -1,0 +1,19 @@
+$blue: lightBlue;
+$blueLight: lightCyan;
+$blueDark: MidnightBlue;
+
+$margin: 16px;
+
+@import "_import";
+
+@import "modules/_import";
+
+body { 
+	background: $blueLight; 
+}
+
+h1 {
+	color: $blueDark;
+	color: red;
+	// color: green;
+}
