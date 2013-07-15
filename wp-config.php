@@ -110,10 +110,8 @@ if ( ! defined( 'WP_HOME' ) )
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/www/content' );
 define( 'WP_CONTENT_URL', WP_HOME . '/content' );
 
-define( 'UPLOADS', dirname( __FILE__ ) . '/www/uploads' );
-
 // Set path to MU Plugins.
-define( 'WPMU_PLUGIN_DIR', dirname( __FILE__ ) . 'www/content/plugins-mu' );
+define( 'WPMU_PLUGIN_DIR', dirname( __FILE__ ) . '/www/content/plugins-mu' );
 define( 'WPMU_PLUGIN_URL', WP_HOME . '/content/plugins-mu' );
 
 define( 'WP_DEFAULT_THEME', 'hm-base-theme' );
