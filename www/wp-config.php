@@ -1,3 +1,3 @@
 <?php
 
-include '../wp-config.php';
+require( __DIR__ . '/../wp-config.php' );
