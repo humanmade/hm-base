@@ -107,13 +107,13 @@ if ( ! defined( 'WP_HOME' ) )
 	define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] );
 
 // Set path & url for Content
-define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/www/content' );
+define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
 define( 'WP_CONTENT_URL', WP_HOME . '/content' );
 
-define( 'UPLOADS', dirname( __FILE__ ) . '/www/uploads' );
+define( 'UPLOADS', dirname( __FILE__ ) . '/uploads' );
 
 // Set path to MU Plugins.
-define( 'WPMU_PLUGIN_DIR', dirname( __FILE__ ) . 'www/content/plugins-mu' );
+define( 'WPMU_PLUGIN_DIR', dirname( __FILE__ ) . '/content/plugins-mu' );
 define( 'WPMU_PLUGIN_URL', WP_HOME . '/content/plugins-mu' );
 
 define( 'WP_DEFAULT_THEME', 'hm-base-theme' );
@@ -125,7 +125,7 @@ define( 'DISALLOW_FILE_EDIT', true );
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) )
-	define( 'ABSPATH', dirname(__FILE__) . '/www/wordpress' );
+	define( 'ABSPATH', dirname(__FILE__) . '/' );
 
 /** Sets up WordPress vars and included files. */
 require_once( ABSPATH . 'wp-settings.php' );
