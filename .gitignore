@@ -1,12 +1,3 @@
-# HM Base & Build
-node_modules
-.sass-cache
-
-**/assets/css/*.min.css
-**/assets/css/*.css
-**/assets/js/*.min.js
-**/assets/js/*.js
-
 # Misc
 .DS_Store
 .htaccess
