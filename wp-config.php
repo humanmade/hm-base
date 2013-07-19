@@ -75,7 +75,7 @@ define( 'NONCE_SALT',       '' );
  * You can have multiple installations in one database if you give each a unique
  * prefix. Only numbers, letters, and underscores please!
  */
-// $table_prefix  = 'wp_';
+$table_prefix  = 'wp_';
 
 /**
  * WordPress Localized Language, defaults to English.
@@ -109,8 +109,6 @@ if ( ! defined( 'WP_HOME' ) )
 // Set path & url for Content
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
 define( 'WP_CONTENT_URL', WP_HOME . '/content' );
-
-define( 'UPLOADS', dirname( __FILE__ ) . '/uploads' );
 
 // Set path to MU Plugins.
 define( 'WPMU_PLUGIN_DIR', dirname( __FILE__ ) . '/content/plugins-mu' );
