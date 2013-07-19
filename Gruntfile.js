@@ -12,7 +12,6 @@ module.exports = function(grunt) {
 				],
 				options: {
 					nospawn: true,
-					livereload: true
 				},
 				tasks: [ 'sass' ]
 			},
@@ -33,8 +32,8 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: [
-					'<%= pkg.themeDirectory %>/assets/js/lib/jquery.js', 
-					'<%= pkg.themeDirectory %>/assets/js/src/file1.js'
+					'<%= pkg.themeDirectory %>/assets/js/src/file1.js', 
+					'<%= pkg.themeDirectory %>/assets/js/src/file2.js'
 				],
 				dest: '<%= pkg.themeDirectory %>/assets/js/<%= pkg.name %>.js'
 			}
@@ -54,22 +53,24 @@ module.exports = function(grunt) {
 		},
 
 		sass: {
-			dist: {
-				options: {
-					style: 'compressed'
+			theme: {
+				dist: {
+					options: {
+						style: 'compressed'
+					},
+					files: {
+						'<%= pkg.themeDirectory %>/assets/css/<%= pkg.name %>.min.css': '<%= pkg.themeDirectory %>/assets/css/src/style.scss',
+					}
 				},
-				files: {
-					'<%= pkg.themeDirectory %>/assets/css/<%= pkg.name %>.min.css': '<%= pkg.themeDirectory %>/assets/css/src/style.scss',
-				}
-			},
-			dev: {
-				options: {
-					style: 'expanded',
-					debugInfo: true,
-					lineNumbers: true
-				},
-				files: {
-					'<%= pkg.themeDirectory %>/assets/css/<%= pkg.name %>.css': '<%= pkg.themeDirectory %>/assets/css/src/style.scss',
+				dev: {
+					options: {
+						style: 'expanded',
+						debugInfo: true,
+						lineNumbers: true
+					},
+					files: {
+						'<%= pkg.themeDirectory %>/assets/css/<%= pkg.name %>.css': '<%= pkg.themeDirectory %>/assets/css/src/style.scss',
+					}
 				}
 			}
 		}
@@ -83,5 +84,8 @@ module.exports = function(grunt) {
 
 	// Default task(s).
 	grunt.registerTask( 'default', ['concat', 'uglify', 'sass' ] );
+
+	grunt.registerTask( 'build-live', ['concat', 'uglify'] );
+
 
 };
