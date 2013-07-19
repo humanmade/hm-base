@@ -4,8 +4,8 @@
 
 	$(document).ready( function () {
 		
-		console.log( 'hello' );
-		console.log( 'goodbye' );
+		alert( 'hello' );
+		alert( 'goodbye' );
 
 	});
 
