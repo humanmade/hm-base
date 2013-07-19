@@ -7,15 +7,6 @@ node_modules
 **/assets/js/*.min.js
 **/assets/js/*.js
 
-#wordpress
-wp-config-local.php
-www/content/uploads/
-www/content/object-cache.php
-
-# To ignore plugins...
-# www/content/plugins/*
-# ! www/content/plugins/dont-ignore
-
 # Misc
 .DS_Store
 .htaccess
@@ -24,4 +15,7 @@ blogs.dir/
 upgrade/
 sitemap.xml
 sitemap.xml.gz
+uploads/
+wp-config-local.php
+site/content/object-cache.php
 wpremote
