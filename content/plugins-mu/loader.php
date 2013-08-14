@@ -15,7 +15,7 @@ foreach ( get_plugins( '/../' . basename( __DIR__ ) ) as $plugin_path => $plugin
 	include_once( WPMU_PLUGIN_DIR . '/' . $plugin_path );
 
 	if ( $plugin['Name'] !== 'MU Plugins Loader' )
-		$loaded_plugins[] = $plugin['Name'];
+		$loaded_plugins[] = $plugin['Name'] . ' ' . $plugin['Version'];
 }
 
 if ( file_exists( 'tlc-transients/tlc-transients.php' ) ) {
