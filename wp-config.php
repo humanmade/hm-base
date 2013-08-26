@@ -96,17 +96,18 @@ define( 'WPLANG', '' );
  */
 if ( defined( 'HM_DEV' ) && HM_DEV )
 	define( 'WP_DEBUG', true );
-
 else
 	define( 'WP_DEBUG', false );
 
+// Define Site URL: WordPress in a subdirectory.
 if ( ! defined( 'WP_SITEURL' ) )
 	define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress' );
 
+// Define Home URL
 if ( ! defined( 'WP_HOME' ) )
 	define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] );
 
-// Set path & url for Content
+// Define path & url for Content
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
 define( 'WP_CONTENT_URL', WP_HOME . '/content' );
 
@@ -114,6 +115,7 @@ define( 'WP_CONTENT_URL', WP_HOME . '/content' );
 define( 'WPMU_PLUGIN_DIR', dirname( __FILE__ ) . '/content/plugins-mu' );
 define( 'WPMU_PLUGIN_URL', WP_HOME . '/content/plugins-mu' );
 
+// Set default theme.
 define( 'WP_DEFAULT_THEME', 'twentytwelve' );
 
 // Prevent editing of files through the admin.
