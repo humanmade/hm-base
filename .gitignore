@@ -1,5 +1,4 @@
 .DS_Store
-
 .htaccess
 xmlrpc.php
 blogs.dir/
@@ -9,5 +8,5 @@ sitemap.xml.gz
 uploads/
 wp-config-local.php
 content/object-cache.php
-wpremote
+wpremote*-backups
 /node_modules/
