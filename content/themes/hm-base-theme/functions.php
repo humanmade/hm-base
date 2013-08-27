@@ -62,7 +62,7 @@ function hmbase_scripts_styles() {
 	// Livereload. To use, run 'grunt watch'.
 	if ( hmbase_is_dev() ) {
 		wp_enqueue_script( 'hmbase-livereload', home_url() . ':35729/livereload.js' ); // When running grunt watch inside vagrant.
-		// wp_enqueue_style( 'hmbase-livereload', 'http://localhost:35729/livereload.js' ); // When running grunt watch on your machine.
+		// wp_enqueue_script( 'hmbase-livereload', 'http://localhost:35729/livereload.js' ); // When running grunt watch on your machine.
 	}
 
 
