@@ -9,5 +9,5 @@ uploads/
 wp-config-local.php
 content/object-cache.php
 wpremote
-wpremote*-backups
+*-backups
 /node_modules/
