@@ -1,5 +1,4 @@
 .DS_Store
-
 .htaccess
 xmlrpc.php
 blogs.dir/
@@ -10,3 +9,5 @@ uploads/
 wp-config-local.php
 content/object-cache.php
 wpremote
+*-backups
+
