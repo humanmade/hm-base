@@ -19,7 +19,7 @@ function hmbase_get_theme_version() {
 
 	//  wp_get_theme since WordPress 3.4.0
 	if ( function_exists( 'wp_get_theme' ) ) {
-		$theme = wp_get_theme( basename( dirname( __FILE__ ) ) );
+		$theme = wp_get_theme( basename( get_bloginfo( 'stylesheet_directory' ) ) );
 		$version = $theme->version;
 	} else {
 		$theme = get_theme_data( get_bloginfo( 'stylesheet_directory' ) . '/style.css' );
