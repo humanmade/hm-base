@@ -12,19 +12,31 @@ add_action( 'wp_enqueue_scripts', function() {
     global $wp_styles, $wp_scripts;
 
     // Find path of site root. Accounts for WP in subdir.
-    $site_root_path = str_replace( str_replace( home_url(), '', site_url() ), '', ABSPATH );
+    $wp_dir = str_replace( home_url(), '', site_url() );
+    $site_root_path = str_replace( $wp_dir, '', ABSPATH );
 
     foreach ( array( 'wp_styles', 'wp_scripts' ) as $resource ) {
 
         foreach ( (array) $$resource->queue as $name ) {
 
-            $registered_resource = $$resource->registered[$name];
-
-            // Skip external and admin assets.
-            if ( false === strpos( $registered_resource->src, home_url() ) )
+            if ( empty( $$resource->registered[$name] ) )
                 continue;
 
-            $file = str_replace( home_url( '/' ), $site_root_path, $registered_resource->src );
+            $src = $$resource->registered[$name]->src;
+
+            // Admin scripts use path relative to site_url.
+            if ( 0 === strpos( $src , '/' ) )
+                $src = site_url( $src );
+            
+            // Skip external scripts.
+            if ( false === strpos( $src, home_url() ) )
+                continue;
+
+            $file = str_replace( home_url( '/' ), $site_root_path, $src );
+
+            if ( ! file_exists( $file ) )
+                continue;
+
             $mtime = filectime( $file );
             $$resource->registered[$name]->ver = $$resource->registered[$name]->ver . '-' . $mtime;
             
