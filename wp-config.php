@@ -98,7 +98,7 @@ if ( defined( 'HM_DEV' ) && HM_DEV ) {
 	
 	define( 'WP_DEBUG', true );
 
-	if ( defined( 'SAVEQUERIES' ) )
+	if ( ! defined( 'SAVEQUERIES' ) )
 		define( 'SAVEQUERIES', true );
 
 } else {
