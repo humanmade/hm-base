@@ -96,7 +96,8 @@ define( 'WPLANG', '' );
  */
 if ( defined( 'HM_DEV' ) && HM_DEV ) {
 	
-	define( 'WP_DEBUG', true );
+	if ( ! defined( 'WP_DEBUG' ) )
+		define( 'WP_DEBUG', true );
 
 	if ( ! defined( 'SAVEQUERIES' ) )
 		define( 'SAVEQUERIES', true );
