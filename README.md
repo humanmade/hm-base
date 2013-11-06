@@ -1,11 +1,5 @@
 HM Base
 =======
-## primary-contact   
-Matthew Haynes-Young
-@matthew  
-## secondary-contact  
--   
--
 
 Standard WordPress layout for Human Made projects.
 
@@ -39,3 +33,7 @@ Done!
 ### Notes
 
 * HM Base sets the MU Plugins directory to `plugins-mu` instead of `mu-plugins` for consistency.
+
+## Contribution guidelines ##
+
+see https://github.com/humanmade/hm-base/blob/master/CONTRIBUTING.md

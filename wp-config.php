@@ -94,10 +94,19 @@ define( 'WPLANG', '' );
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-if ( defined( 'HM_DEV' ) && HM_DEV )
-	define( 'WP_DEBUG', true );
-else
+if ( defined( 'HM_DEV' ) && HM_DEV ) {
+	
+	if ( ! defined( 'WP_DEBUG' ) )
+		define( 'WP_DEBUG', true );
+
+	if ( ! defined( 'SAVEQUERIES' ) )
+		define( 'SAVEQUERIES', true );
+
+} else {
+
 	define( 'WP_DEBUG', false );
+
+}
 
 // Define Site URL: WordPress in a subdirectory.
 if ( ! defined( 'WP_SITEURL' ) )
