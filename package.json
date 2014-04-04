@@ -1,0 +1,22 @@
+{
+  "name": "hm-base",
+  "version": "0.1.0",
+  "main": "Gruntfile.js",
+  "author": "Human Made Limited",
+  "license": "GPL V2",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/humanmade/hm-base.git"
+  },
+  "bugs": {
+    "url": "https://github.com/humanmade/hm-base/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-cssmin": "~0.6.1",
+    "grunt-sass": "~0.6.1",
+    "grunt-contrib-watch": "~0.5.3"
+  },
+  "themesDir": "content/themes"
+}
