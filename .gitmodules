@@ -1,3 +1,6 @@
 [submodule "wordpress"]
 	path = wordpress
 	url = https://github.com/WordPress/WordPress.git
+[submodule "content/themes/_s"]
+	path = content/themes/_s
+	url = git@github.com:Automattic/_s.git
