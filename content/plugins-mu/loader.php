@@ -1,45 +1,74 @@
 <?php
 
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-
-$loaded_plugins = array();
-
-//Loop through all plugins in MU Plugins directory.
-//Note get_plugins requires path relative to plugins dir. 
-foreach ( get_plugins( '/../' . basename( __DIR__ ) ) as $plugin_path => $plugin ) {
-
-	// Only load HM Dev if HM_DEV is true.
-	if ( 'HM Dev' === $plugin['Name'] && ( ! defined( 'HM_DEV') || defined( 'HM_DEV' ) && false === HM_DEV ) )
-		continue;
-
-	include_once( WPMU_PLUGIN_DIR . '/' . $plugin_path );
-
-	if ( $plugin['Name'] !== 'MU Plugins Loader' )
-		$loaded_plugins[] = $plugin['Name'] . ' ' . $plugin['Version'];
-}
-
-if ( file_exists( 'tlc-transients/tlc-transients.php' ) ) {
-	$loaded_plugins[] = 'TLC Transients';
-	include_once( 'tlc-transients/tlc-transients.php' );
-}
-
-if ( file_exists( WPMU_PLUGIN_DIR . '/custom-meta-boxes/custom-meta-boxes.php' ) ) {
-	$loaded_plugins[] = 'Custom Meta Boxes';
-	include_once( 'custom-meta-boxes/custom-meta-boxes.php' );
-}
-
 /*
-Plugin Name: MU Plugins Loader
-Description: Loaded the below plugins
+Plugin Name: HM MU Plugin Loader
+Description: Loads the MU plugins required to run the site
 Author: Human Made Limited
-Version: 0.2
-Author URI: http://humanmade.co.uk/
+Author URI: http://hmn.md/
+Version: 1.0
 */
 
-add_filter( 'plugin_row_meta', function( $plugin_meta, $plugin_file, $plugin_data, $status ) use ( $loaded_plugins ) {
+if ( ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) )
+	return;
 
-	if ( $plugin_file !== 'loader.php' )
-		return $plugin_meta;
+$hm_mu_plugins = array(
+	's3-uploads/s3-uploads.php',
+	'hm-mandrill/plugin.php',
+	'wp-imgix/wp-imgix.php'
+);
 
-	return $loaded_plugins;
+foreach ( $hm_mu_plugins as $file ) {
+	require_once WPMU_PLUGIN_DIR . '/' . $file;
+}
+unset($file);
+
+add_action( 'pre_current_active_plugins', function () use ( $hm_mu_plugins ) {
+	global $plugins, $wp_list_table;
+
+	// Add our own mu-plugins to the page
+	foreach ( $hm_mu_plugins as $plugin_file ) {
+		$plugin_data = get_plugin_data( WPMU_PLUGIN_DIR . "/$plugin_file", false, false ); //Do not apply markup/translate as it'll be cached.
+
+		if ( empty ( $plugin_data['Name'] ) )
+			$plugin_data['Name'] = $plugin_file;
+
+		$plugins['mustuse'][ $plugin_file ] = $plugin_data;
+	}
+
+	// Recount totals
+	$GLOBALS['totals']['mustuse'] = count( $plugins['mustuse'] );
+
+	// Only apply the rest if we're actually looking at the page
+	if ( $GLOBALS['status'] !== 'mustuse' )
+		return;
+
+	// Reset the list table's data
+	$wp_list_table->items = $plugins['mustuse'];
+	foreach ( $wp_list_table->items as $plugin_file => $plugin_data ) {
+		$wp_list_table->items[$plugin_file] = _get_plugin_data_markup_translate( $plugin_file, $plugin_data, false, true );
+	}
+
+	$total_this_page = $GLOBALS['totals']['mustuse'];
+
+	if ( $GLOBALS['orderby'] ) {
+		uasort( $wp_list_table->items, array( $wp_list_table, '_order_callback' ) );
+	}
+
+	// Force showing all plugins
+	// See https://core.trac.wordpress.org/ticket/27110
+	$plugins_per_page = $total_this_page;
+
+	$wp_list_table->set_pagination_args( array(
+		'total_items' => $total_this_page,
+		'per_page' => $plugins_per_page,
+	) );
+});
+
+add_action( 'network_admin_plugin_action_links', function ( $actions, $plugin_file, $plugin_data, $context ) use ( $hm_mu_plugins ) {
+	if ( $context !== 'mustuse' || ! in_array( $plugin_file, $hm_mu_plugins ) ) {
+		return;
+	}
+
+	$actions[] = sprintf( '<span style="color:#333">File: <code>%s</code></span>', $plugin_file );
+	return $actions;
 }, 10, 4 );

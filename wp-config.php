@@ -15,41 +15,28 @@
  * @package WordPress
  */
 
+// sane default for wp-cli etc
+if ( ! isset( $_SERVER['HTTP_HOST'] ) ) {
+	$_SERVER['HTTP_HOST'] = '';
+}
+
 /**
  * Don't edit this file directly, instead, create a local-config.php file and add your database
  * settings and defines in there. This file contains the production settings
  */
-if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) 
+if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
 	include( dirname( __FILE__ ) . '/wp-config-local.php' );
 
-/**
- *	Production settings.
- */
+	defined( 'HM_DEV' ) or define( 'HM_DEV', true );
+	defined( 'WP_DEBUG' ) or define( 'WP_DEBUG', true );
+	defined( 'SAVEQUERIES' ) or define( 'SAVEQUERIES', true );
 
-/** The name of the database for WordPress */
-if ( ! defined( 'DB_NAME' ) )
-	define( 'DB_NAME', '' );
+} elseif ( file_exists( '/var/cloudformation-vars.php' ) ) {
 
-	/** MySQL database username */
-if ( ! defined( 'DB_USER' ) )
-	define( 'DB_USER', '' );
+	defined( 'HM_DEV' ) or define( 'HM_DEV', false );
 
-	/** MySQL database password */
-if ( ! defined( 'DB_PASSWORD' ) )
-	define( 'DB_PASSWORD', '' );
-
-	/** MySQL hostname */
-if ( ! defined( 'DB_HOST' ) )
-	define( 'DB_HOST', '' );
-
-	/** Database Charset to use in creating database tables. */
-if ( ! defined( 'DB_CHARSET' ) )
-	define( 'DB_CHARSET', 'utf8' );
-
-	/** The Database Collate type. Don't change this if in doubt. */
-if ( ! defined( 'DB_COLLATE' ) )
-	define( 'DB_COLLATE', '' );
-
+	include( '/var/cloudformation-vars.php' );
+}
 
 /**
  * Authentication Unique Keys and Salts.
@@ -87,27 +74,6 @@ $table_prefix  = 'wp_';
  */
 define( 'WPLANG', '' );
 
-/**
- * For developers: WordPress debugging mode.
- *
- * Change this to true to enable the display of notices during development.
- * It is strongly recommended that plugin and theme developers use WP_DEBUG
- * in their development environments.
- */
-if ( defined( 'HM_DEV' ) && HM_DEV ) {
-	
-	if ( ! defined( 'WP_DEBUG' ) )
-		define( 'WP_DEBUG', true );
-
-	if ( ! defined( 'SAVEQUERIES' ) )
-		define( 'SAVEQUERIES', true );
-
-} else {
-
-	define( 'WP_DEBUG', false );
-
-}
-
 // Define Site URL: WordPress in a subdirectory.
 if ( ! defined( 'WP_SITEURL' ) )
 	define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress' );
@@ -124,11 +90,13 @@ define( 'WP_CONTENT_URL', WP_HOME . '/content' );
 define( 'WPMU_PLUGIN_DIR', dirname( __FILE__ ) . '/content/plugins-mu' );
 define( 'WPMU_PLUGIN_URL', WP_HOME . '/content/plugins-mu' );
 
-// Set default theme.
-define( 'WP_DEFAULT_THEME', 'hm-base-theme' );
-
 // Prevent editing of files through the admin.
 define( 'DISALLOW_FILE_EDIT', true );
+define( 'DISALLOW_FILE_MODS', true );
+
+if ( ! HM_DEV ) {
+	defined( 'WP_CACHE' ) OR define( 'WP_CACHE', true );
+}
 
 /* That's all, stop editing! Happy blogging. */
 

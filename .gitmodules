@@ -4,3 +4,18 @@
 [submodule "content/themes/_s"]
 	path = content/themes/_s
 	url = git@github.com:Automattic/_s.git
+[submodule "content/plugins-mu/s3-uploads"]
+	path = content/plugins-mu/s3-uploads
+	url = git@github.com:humanmade/S3-Uploads.git
+[submodule "content/plugins-mu/wp-imgix"]
+	path = content/plugins-mu/wp-imgix
+	url = git@github.com:humanmade/WP-Imgix.git
+[submodule "content/plugins-mu/memcached-object-cache"]
+	path = content/plugins-mu/memcached-object-cache
+	url = git@github.com:humanmade/memcache-object-cache.git
+[submodule "content/plugins-mu/batcache"]
+	path = content/plugins-mu/batcache
+	url = git@github.com:humanmade/batcache.git
+[submodule "content/plugins-mu/hm-mandrill"]
+	path = content/plugins-mu/hm-mandrill
+	url = git@github.com:humanmade/hm-mandrill.git
