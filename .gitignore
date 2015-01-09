@@ -6,8 +6,13 @@ upgrade/
 sitemap.xml
 sitemap.xml.gz
 uploads/
-wp-config-local.php
 content/object-cache.php
 wpremote
 *-backups
 /node_modules/
+
+### WordPress local dev ###
+wp-config-local.php
+*.log
+hm-dev/
+query-monitor/
