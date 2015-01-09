@@ -1,4 +1,3 @@
-.DS_Store
 .htaccess
 xmlrpc.php
 blogs.dir/
@@ -6,8 +5,21 @@ upgrade/
 sitemap.xml
 sitemap.xml.gz
 uploads/
-wp-config-local.php
 content/object-cache.php
 wpremote
 *-backups
 /node_modules/
+
+### WordPress local dev ###
+wp-config-local.php
+*.log
+hm-dev/
+query-monitor/
+
+### OS and Software generated files ###
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+._*
+.idea/
