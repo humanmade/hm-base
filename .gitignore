@@ -5,7 +5,6 @@ upgrade/
 sitemap.xml
 sitemap.xml.gz
 uploads/
-content/object-cache.php
 wpremote
 *-backups
 /node_modules/
