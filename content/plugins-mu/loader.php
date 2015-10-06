@@ -13,8 +13,6 @@ if ( ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) )
 
 $hm_mu_plugins = array(
 	's3-uploads/s3-uploads.php',
-	'hm-mandrill/plugin.php',
-	'wp-imgix/wp-imgix.php'
 );
 
 foreach ( $hm_mu_plugins as $file ) {
