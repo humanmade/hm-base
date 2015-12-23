@@ -37,6 +37,7 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
 
 	include( '/var/cloudformation-vars.php' );
 } elseif ( file_exists( dirname( __FILE__ ) . '/wp-config-production.php' ) ) {
+	defined( 'HM_DEV' ) or define( 'HM_DEV', false );
 	include( dirname( __FILE__ ) . '/wp-config-production.php' );
 }
 
