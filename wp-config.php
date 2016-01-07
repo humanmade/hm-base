@@ -81,7 +81,7 @@ define( 'DB_CHARSET', 'utf8' );
 
 // Define Site URL: WordPress in a subdirectory.
 if ( ! defined( 'WP_SITEURL' ) )
-	define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] . '/wordpress' );
+	define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] );
 
 // Define Home URL
 if ( ! defined( 'WP_HOME' ) )
