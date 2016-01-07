@@ -10,3 +10,6 @@
 [submodule "content/plugins-mu/mandrill-wp-mail"]
 	path = content/plugins-mu/mandrill-wp-mail
 	url = git@github.com:danielbachhuber/mandrill-wp-mail.git
+[submodule "wordpress"]
+	path = wordpress
+	url = git://core.git.wordpress.org/
