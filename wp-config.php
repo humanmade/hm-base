@@ -99,6 +99,9 @@ define( 'WPMU_PLUGIN_URL', WP_HOME . '/content/plugins-mu' );
 define( 'DISALLOW_FILE_EDIT', true );
 define( 'DISALLOW_FILE_MODS', true );
 
+// Add Cache Control headers for 1 year to S3 Uploads.
+defined( 'S3_UPLOADS_CACHE_CONTROL' ) or define( 'S3_UPLOADS_CACHE_CONTROL', 60 * 60 * 24 * 365 );
+
 if ( ! HM_DEV ) {
 	defined( 'WP_CACHE' ) OR define( 'WP_CACHE', true );
 }
