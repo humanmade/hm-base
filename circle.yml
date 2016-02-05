@@ -1,0 +1,11 @@
+machine:
+  php:
+    version: 5.5.9
+
+checkout:
+  post:
+    - git submodule update --init --recursive
+
+test:
+  pre:
+    - php -l
