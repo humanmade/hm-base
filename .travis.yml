@@ -1,0 +1,7 @@
+language: php
+
+before_script:
+  # run build script
+
+script:
+  - php -l
