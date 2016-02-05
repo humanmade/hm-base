@@ -6,6 +6,18 @@ checkout:
   post:
     - git submodule update --init --recursive
 
+dependencies:
+  post:
+    - npm install -g casperjs
+
 test:
   pre:
     - find -L ./ -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l > /dev/null
+  override:
+    - phpunit
+    - sudo service memcached restart
+    - php -S 127.0.0.1:8080:
+        background: true
+    - sleep 5
+    - cp .tests/wp-casperjs-tests-config.php wp-config-local.php
+    - casperjs test tests/casperjs --url=http://localhost:8080 --log-level=debug
