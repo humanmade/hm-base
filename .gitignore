@@ -18,7 +18,6 @@ query-monitor/
 ### OS and Software generated files ###
 .DS_Store
 ehthumbs.db
-Icon?
 Thumbs.db
 ._*
 .idea/
