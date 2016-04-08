@@ -10,9 +10,6 @@
 [submodule "content/plugins-mu/batcache"]
 	path = content/plugins-mu/batcache
 	url = git@github.com:humanmade/batcache.git
-[submodule "content/plugins-mu/mandrill-wp-mail"]
-	path = content/plugins-mu/mandrill-wp-mail
-	url = git@github.com:danielbachhuber/mandrill-wp-mail.git
 [submodule "content/plugins-mu/memcached-object-cache-pecl"]
 	path = content/plugins-mu/memcached-object-cache-pecl
 	url = git@github.com:tollmanz/wordpress-pecl-memcached-object-cache.git
