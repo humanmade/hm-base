@@ -13,3 +13,6 @@
 [submodule "content/plugins-mu/memcached-object-cache-pecl"]
 	path = content/plugins-mu/memcached-object-cache-pecl
 	url = git@github.com:tollmanz/wordpress-pecl-memcached-object-cache.git
+[submodule "content/plugins-mu/aws-ses-wp-mail"]
+	path = content/plugins-mu/aws-ses-wp-mail
+	url = git@github.com:humanmade/aws-ses-wp-mail.git
