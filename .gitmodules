@@ -13,3 +13,9 @@
 [submodule "wordpress"]
 	path = wordpress
 	url = git://core.git.wordpress.org/
+[submodule "content/plugins-mu/memcached-object-cache-pecl"]
+	path = content/plugins-mu/memcached-object-cache-pecl
+	url = git@github.com:tollmanz/wordpress-pecl-memcached-object-cache.git
+[submodule "content/plugins-mu/ludicrousdb"]
+	path = content/plugins-mu/ludicrousdb
+	url = git@github.com:TimeIncOSS/ludicrousdb.git

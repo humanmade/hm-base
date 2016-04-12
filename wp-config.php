@@ -99,6 +99,9 @@ define( 'WPMU_PLUGIN_URL', WP_HOME . '/content/plugins-mu' );
 define( 'DISALLOW_FILE_EDIT', true );
 define( 'DISALLOW_FILE_MODS', true );
 
+// Add Cache Control headers for 1 year to S3 Uploads.
+defined( 'S3_UPLOADS_HTTP_CACHE_CONTROL' ) or define( 'S3_UPLOADS_HTTP_CACHE_CONTROL', 60 * 60 * 24 * 365 );
+
 if ( ! HM_DEV ) {
 	defined( 'WP_CACHE' ) OR define( 'WP_CACHE', true );
 }
@@ -107,7 +110,7 @@ if ( ! HM_DEV ) {
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) )
-	define( 'ABSPATH', dirname(__FILE__) . '/' );
+	define( 'ABSPATH', dirname(__FILE__) . '/wordpress/' );
 
 /** Sets up WordPress vars and included files. */
 require_once( ABSPATH . 'wp-settings.php' );
