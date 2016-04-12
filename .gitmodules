@@ -1,6 +1,3 @@
-[submodule "wordpress"]
-	path = wordpress
-	url = https://github.com/WordPress/WordPress.git
 [submodule "content/plugins-mu/s3-uploads"]
 	path = content/plugins-mu/s3-uploads
 	url = git@github.com:humanmade/S3-Uploads.git
@@ -13,6 +10,9 @@
 [submodule "content/plugins-mu/mandrill-wp-mail"]
 	path = content/plugins-mu/mandrill-wp-mail
 	url = git@github.com:danielbachhuber/mandrill-wp-mail.git
+[submodule "wordpress"]
+	path = wordpress
+	url = git://core.git.wordpress.org/
 [submodule "content/plugins-mu/memcached-object-cache-pecl"]
 	path = content/plugins-mu/memcached-object-cache-pecl
 	url = git@github.com:tollmanz/wordpress-pecl-memcached-object-cache.git
