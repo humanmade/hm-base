@@ -14,6 +14,7 @@ wp-config-local.php
 *.log
 hm-dev/
 query-monitor/
+ignore/
 
 ### OS and Software generated files ###
 .DS_Store
