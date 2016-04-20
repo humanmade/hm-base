@@ -1,6 +1,6 @@
 [submodule "wordpress"]
 	path = wordpress
-	url = https://github.com/WordPress/WordPress.git
+	url = git://core.git.wordpress.org/
 [submodule "content/plugins-mu/s3-uploads"]
 	path = content/plugins-mu/s3-uploads
 	url = git@github.com:humanmade/S3-Uploads.git
