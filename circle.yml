@@ -5,7 +5,7 @@ machine:
 checkout:
   post:
     - git submodule sync
-    - git submodule update --init --recursive --remote
+    - git submodule update --init --recursive
 
 dependencies:
   post:
