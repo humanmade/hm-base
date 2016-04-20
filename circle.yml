@@ -5,6 +5,7 @@ machine:
 checkout:
   post:
     - git submodule sync
+    - git submodule foreach 'git prune && git fetch --all'
     - git submodule update --init --recursive
 
 dependencies:
