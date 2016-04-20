@@ -1,6 +1,6 @@
 machine:
   php:
-    version: 7.0.3
+    version: 5.5.9
 
 checkout:
   post:
