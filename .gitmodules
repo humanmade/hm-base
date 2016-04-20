@@ -16,3 +16,6 @@
 [submodule "content/plugins-mu/aws-ses-wp-mail"]
 	path = content/plugins-mu/aws-ses-wp-mail
 	url = git@github.com:humanmade/aws-ses-wp-mail.git
+[submodule "wordpress"]
+	path = wordpress
+	url = git://core.git.wordpress.org/
