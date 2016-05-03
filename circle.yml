@@ -13,7 +13,7 @@ checkout:
 dependencies:
   post:
     - npm install -g casperjs
-    - yes '' | pecl install memcache
+    - yes '' | pecl install memcached-stable
 
 test:
   pre:
