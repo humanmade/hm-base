@@ -16,3 +16,6 @@
 [submodule "wordpress"]
 	path = wordpress
 	url = git://core.git.wordpress.org/
+[submodule "content/plugins-mu/ludicrousdb"]
+	path = content/plugins-mu/ludicrousdb
+	url = git@github.com:johnjamesjacoby/ludicrousdb.git
