@@ -26,13 +26,16 @@ $wpdb->add_database(array(
  * This adds the same server again, only this time it is configured as a slave.
  * The last three parameters are set to the defaults but are shown for clarity.
  */
-$wpdb->add_database(array(
-	'host'     => DB_HOST,     // If port is other than 3306, use host:port.
-	'user'     => DB_USER,
-	'password' => DB_PASSWORD,
-	'name'     => DB_NAME,
-	'write'    => 0,
-	'read'     => 1,
-	'dataset'  => 'global',
-	'timeout'  => 0.2,
-));
+if ( defined( 'DB_HOST_SLAVE' ) && DB_HOST_SLAVE ) {
+	$wpdb->add_database(array(
+		'host'     => DB_HOST_SLAVE,     // If port is other than 3306, use host:port.
+		'user'     => DB_USER,
+		'password' => DB_PASSWORD,
+		'name'     => DB_NAME,
+		'write'    => 0,
+		'read'     => 1,
+		'dataset'  => 'global',
+		'timeout'  => 0.2,
+	));
+}
+
