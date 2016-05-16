@@ -77,7 +77,7 @@ $table_prefix  = 'wp_';
  */
 define( 'WPLANG', '' );
 
-define( 'DB_CHARSET', 'utf8' );
+define( 'DB_CHARSET', 'utf8mb4' );
 
 // Define Site URL: WordPress in a subdirectory.
 if ( ! defined( 'WP_SITEURL' ) )
