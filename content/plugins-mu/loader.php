@@ -12,9 +12,8 @@ if ( ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) )
 	return;
 
 $hm_mu_plugins = array(
-	//'s3-uploads/s3-uploads.php',
-	//'aws-ses-wp-mail/aws-ses-wp-mail.php',
-	'custom-meta-boxes/custom-meta-boxes.php'
+	's3-uploads/s3-uploads.php',
+	'aws-ses-wp-mail/aws-ses-wp-mail.php',
 );
 
 foreach ( $hm_mu_plugins as $file ) {
