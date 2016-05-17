@@ -12,8 +12,9 @@ if ( ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) )
 	return;
 
 $hm_mu_plugins = array(
-	's3-uploads/s3-uploads.php',
-	'aws-ses-wp-mail/aws-ses-wp-mail.php',
+	//'s3-uploads/s3-uploads.php',
+	//'aws-ses-wp-mail/aws-ses-wp-mail.php',
+	'custom-meta-boxes/custom-meta-boxes.php'
 );
 
 foreach ( $hm_mu_plugins as $file ) {
@@ -63,11 +64,13 @@ add_action( 'pre_current_active_plugins', function () use ( $hm_mu_plugins ) {
 	) );
 });
 
-add_action( 'network_admin_plugin_action_links', function ( $actions, $plugin_file, $plugin_data, $context ) use ( $hm_mu_plugins ) {
-	if ( $context !== 'mustuse' || ! in_array( $plugin_file, $hm_mu_plugins ) ) {
-		return;
-	}
+foreach ( $hm_mu_plugins  as $plugin_file ) {
+	add_action( 'network_admin_plugin_action_links_' . $plugin_file, function( $actions, $plugin_file, $plugin_data, $context ) {
+		if ( $context !== 'mustuse' ) {
+			return;
+		}
 
-	$actions[] = sprintf( '<span style="color:#333">File: <code>%s</code></span>', $plugin_file );
-	return $actions;
-}, 10, 4 );
+		$actions[] = sprintf( '<span style="color:#333">File: <code>%s</code></span>', $plugin_file );
+		return $actions;
+	}, 10, 4 );
+}
