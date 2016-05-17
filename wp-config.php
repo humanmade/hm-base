@@ -96,8 +96,9 @@ define( 'WPMU_PLUGIN_DIR', dirname( __FILE__ ) . '/content/plugins-mu' );
 define( 'WPMU_PLUGIN_URL', WP_HOME . '/content/plugins-mu' );
 
 // Prevent editing of files through the admin.
+// Enable installing and upgrading plugins for dev sites.
 define( 'DISALLOW_FILE_EDIT', true );
-define( 'DISALLOW_FILE_MODS', true );
+define( 'DISALLOW_FILE_MODS', ! HM_DEV );
 
 // Add Cache Control headers for 1 year to S3 Uploads.
 defined( 'S3_UPLOADS_HTTP_CACHE_CONTROL' ) or define( 'S3_UPLOADS_HTTP_CACHE_CONTROL', 60 * 60 * 24 * 365 );
