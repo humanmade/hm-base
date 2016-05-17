@@ -93,7 +93,7 @@ define( 'WPMU_PLUGIN_URL', WP_HOME . '/content/plugins-mu' );
 // Prevent editing of files through the admin.
 // Enable installing and upgrading plugins for dev sites.
 define( 'DISALLOW_FILE_EDIT', true );
-define( 'DISALLOW_FILE_MODS', HM_DEV ? false : true );
+define( 'DISALLOW_FILE_MODS', ! HM_DEV );
 
 if ( ! HM_DEV ) {
 	defined( 'WP_CACHE' ) OR define( 'WP_CACHE', true );
