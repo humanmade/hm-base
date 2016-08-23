@@ -6,7 +6,7 @@
  * @subpackage HM_Base_Theme
  */
 ?>
-	
+
 <?php wp_footer(); ?>
 
 </body>

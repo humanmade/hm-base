@@ -8,8 +8,9 @@ Author URI: http://hmn.md/
 Version: 1.0
 */
 
-if ( ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) )
+if ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) {
 	return;
+}
 
 $hm_mu_plugins = array(
 	's3-uploads/s3-uploads.php',
@@ -19,7 +20,7 @@ $hm_mu_plugins = array(
 foreach ( $hm_mu_plugins as $file ) {
 	require_once WPMU_PLUGIN_DIR . '/' . $file;
 }
-unset($file);
+unset( $file );
 
 add_action( 'pre_current_active_plugins', function () use ( $hm_mu_plugins ) {
 	global $plugins, $wp_list_table;
@@ -28,8 +29,9 @@ add_action( 'pre_current_active_plugins', function () use ( $hm_mu_plugins ) {
 	foreach ( $hm_mu_plugins as $plugin_file ) {
 		$plugin_data = get_plugin_data( WPMU_PLUGIN_DIR . "/$plugin_file", false, false ); //Do not apply markup/translate as it'll be cached.
 
-		if ( empty ( $plugin_data['Name'] ) )
+		if ( empty( $plugin_data['Name'] ) ) {
 			$plugin_data['Name'] = $plugin_file;
+		}
 
 		$plugins['mustuse'][ $plugin_file ] = $plugin_data;
 	}
@@ -38,13 +40,14 @@ add_action( 'pre_current_active_plugins', function () use ( $hm_mu_plugins ) {
 	$GLOBALS['totals']['mustuse'] = count( $plugins['mustuse'] );
 
 	// Only apply the rest if we're actually looking at the page
-	if ( $GLOBALS['status'] !== 'mustuse' )
+	if ( $GLOBALS['status'] !== 'mustuse' ) {
 		return;
+	}
 
 	// Reset the list table's data
 	$wp_list_table->items = $plugins['mustuse'];
 	foreach ( $wp_list_table->items as $plugin_file => $plugin_data ) {
-		$wp_list_table->items[$plugin_file] = _get_plugin_data_markup_translate( $plugin_file, $plugin_data, false, true );
+		$wp_list_table->items[ $plugin_file ] = _get_plugin_data_markup_translate( $plugin_file, $plugin_data, false, true );
 	}
 
 	$total_this_page = $GLOBALS['totals']['mustuse'];

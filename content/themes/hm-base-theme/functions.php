@@ -64,7 +64,5 @@ function hmbase_scripts_styles() {
 		wp_enqueue_script( 'hmbase-livereload', home_url() . ':35729/livereload.js' ); // When running grunt watch inside vagrant.
 		// wp_enqueue_script( 'hmbase-livereload', 'http://localhost:35729/livereload.js' ); // When running grunt watch on your machine.
 	}
-
-
 }
 add_action( 'wp_enqueue_scripts', 'hmbase_scripts_styles' );

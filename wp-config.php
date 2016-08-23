@@ -50,14 +50,14 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         '%dy32y+}-B6CbY?L^`G^7V%m7_X-{H|pQFT.o<!zFy #KJH|i)g!Gmv.l.RNG=FH');
-define('SECURE_AUTH_KEY',  'bq-0xSuVmYU$,DpNcIF(w_wXA~QFLy}neMX4pfx}/WE5q;]d?L%I&/HTU}nhZ;aZ');
-define('LOGGED_IN_KEY',    'XE3>+dW}|%9-R)}|5)%8MB7Fw`3(&A%J`{TGO>[{c<5!|OC3@2,s|I_&Fa)S1VZc');
-define('NONCE_KEY',        ';>@VI/uXi:h-2[|p|Y;5Q:1B!MEtw+jo]oTCpZ8Y@|7wj2HFjr]k$cc7{@Ip>}4j');
-define('AUTH_SALT',        'e85rP5Nv #Uvr!Q!~zTdoXu .GDWm_9~ Y*-FT:UCq+T;CN<4{=f8AiJ6EN22|Ji');
-define('SECURE_AUTH_SALT', 'PN=A.~g|EPg$2G7u/Z<v.)5|Cul|4-v%82,*@fTRj<+XOz(~.![cq$f+Z]/(|]m%');
-define('LOGGED_IN_SALT',   '=E)%I:|oC| jV}@C&~@`n~jcm]_/ef-j][Btr0m%8%M|E:=G`|?|~Z[c:jSaomT}');
-define('NONCE_SALT',       'zn0$xcc DX|6HYI0!gh`IdT5+xfX6cA5T;>-Tz,Q}h[Dw6*.U>6)h(w,o5fad+[|');
+define( 'AUTH_KEY',         '%dy32y+}-B6CbY?L^`G^7V%m7_X-{H|pQFT.o<!zFy #KJH|i)g!Gmv.l.RNG=FH' );
+define( 'SECURE_AUTH_KEY',  'bq-0xSuVmYU$,DpNcIF(w_wXA~QFLy}neMX4pfx}/WE5q;]d?L%I&/HTU}nhZ;aZ' );
+define( 'LOGGED_IN_KEY',    'XE3>+dW}|%9-R)}|5)%8MB7Fw`3(&A%J`{TGO>[{c<5!|OC3@2,s|I_&Fa)S1VZc' );
+define( 'NONCE_KEY',        ';>@VI/uXi:h-2[|p|Y;5Q:1B!MEtw+jo]oTCpZ8Y@|7wj2HFjr]k$cc7{@Ip>}4j' );
+define( 'AUTH_SALT',        'e85rP5Nv #Uvr!Q!~zTdoXu .GDWm_9~ Y*-FT:UCq+T;CN<4{=f8AiJ6EN22|Ji' );
+define( 'SECURE_AUTH_SALT', 'PN=A.~g|EPg$2G7u/Z<v.)5|Cul|4-v%82,*@fTRj<+XOz(~.![cq$f+Z]/(|]m%' );
+define( 'LOGGED_IN_SALT',   '=E)%I:|oC| jV}@C&~@`n~jcm]_/ef-j][Btr0m%8%M|E:=G`|?|~Z[c:jSaomT}' );
+define( 'NONCE_SALT',       'zn0$xcc DX|6HYI0!gh`IdT5+xfX6cA5T;>-Tz,Q}h[Dw6*.U>6)h(w,o5fad+[|' );
 
 /**
  * WordPress Database Table prefix.
@@ -102,14 +102,15 @@ define( 'DISALLOW_FILE_MODS', ! HM_DEV );
 defined( 'S3_UPLOADS_HTTP_CACHE_CONTROL' ) or define( 'S3_UPLOADS_HTTP_CACHE_CONTROL', 60 * 60 * 24 * 365 );
 
 if ( ! HM_DEV ) {
-	defined( 'WP_CACHE' ) OR define( 'WP_CACHE', true );
+	defined( 'WP_CACHE' ) or define( 'WP_CACHE', true );
 }
 
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
-if ( ! defined( 'ABSPATH' ) )
-	define( 'ABSPATH', dirname(__FILE__) . '/wordpress/' );
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', dirname( __FILE__ ) . '/wordpress/' );
+}
 
 /** Sets up WordPress vars and included files. */
 require_once( ABSPATH . 'wp-settings.php' );
