@@ -1,6 +1,8 @@
 HM Base
 =======
 
+[![CircleCI](https://circleci.com/gh/humanmade/hm-base.svg?style=svg)](https://circleci.com/gh/humanmade/hm-base)
+
 Standard WordPress layout for Human Made projects.
 
 ### Setup Instructions.
