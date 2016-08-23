@@ -30,7 +30,7 @@ test:
     - mysql -e 'create database wp_tests;'
   override:
     - phpunit
-    - ./php-codesniffer/scripts/phpcs -p --extensions=php --standard=./codesniffer-ruleset.xml ./ -v -a -q
+    - ./php-codesniffer/scripts/phpcs -p --extensions=php --standard=./codesniffer-ruleset.xml ./ -v -q
     - php -S 127.0.0.1:8080:
         background: true
     - sleep 5

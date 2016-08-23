@@ -8,7 +8,9 @@
 	<rule ref="WordPress-Core" />
 	<exclude-pattern>wordpress/*</exclude-pattern>
 	<exclude-pattern>content/plugins-mu/s3-uploads/*</exclude-pattern>
+	<exclude-pattern>content/plugins-mu/aws-ses-wp-mail/*</exclude-pattern>
 	<exclude-pattern>content/plugins-mu/batcache/*</exclude-pattern>
+	<exclude-pattern>content/plugins-mu/ludicrousdb/*</exclude-pattern>
 	<exclude-pattern>content/plugins-mu/memcached-object-cache/*</exclude-pattern>
 	<exclude-pattern>content/plugins-mu/memcached-object-cache-pecl/*</exclude-pattern>
 	<exclude-pattern>php-codesniffer/*</exclude-pattern>
