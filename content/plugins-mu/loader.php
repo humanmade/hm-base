@@ -13,8 +13,9 @@ if ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) {
 }
 
 $hm_mu_plugins = array(
-	's3-uploads/s3-uploads.php',
-	'aws-ses-wp-mail/aws-ses-wp-mail.php',
+
+	// load mu-plugins here.
+
 );
 
 foreach ( $hm_mu_plugins as $file ) {
