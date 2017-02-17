@@ -105,13 +105,27 @@ define( 'DISALLOW_FILE_EDIT', true );
 define( 'DISALLOW_FILE_MODS', ! HM_DEV );
 
 // Load the HM Library for HM Hosting
-require_once WP_CONTENT_DIR . '/plugins-mu/hm-platform/load.php';
+require_once WP_CONTENT_DIR . '/hm-platform/load.php';
 
 // Add Cache Control headers for 1 year to S3 Uploads.
 defined( 'S3_UPLOADS_HTTP_CACHE_CONTROL' ) or define( 'S3_UPLOADS_HTTP_CACHE_CONTROL', 60 * 60 * 24 * 365 );
 
 if ( ! HM_DEV ) {
 	defined( 'WP_CACHE' ) or define( 'WP_CACHE', true );
+}
+
+// Enable Multisite if it hasn't already been set
+if ( ! defined( 'WP_ALLOW_MULTISITE' ) ) {
+	define( 'WP_ALLOW_MULTISITE', true );
+}
+
+// If Multisite is enabled then define the required constants
+if ( defined( 'WP_ALLOW_MULTISITE' ) && WP_ALLOW_MULTISITE ) {
+	define( 'MULTISITE', true );
+	define( 'SUBDOMAIN_INSTALL', true );
+	define( 'PATH_CURRENT_SITE', '/' );
+	define( 'SITE_ID_CURRENT_SITE', 1 );
+	define( 'BLOG_ID_CURRENT_SITE', 1 );
 }
 
 /* That's all, stop editing! Happy blogging. */
