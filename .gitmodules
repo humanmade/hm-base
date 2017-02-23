@@ -1,6 +1,6 @@
 [submodule "wordpress"]
 	path = wordpress
 	url = git://core.git.wordpress.org/
-[submodule "content/plugins-mu/hm-platform"]
-	path = content/plugins-mu/hm-platform
+[submodule "content/hm-platform"]
+	path = content/hm-platform
 	url = git@github.com:humanmade/hm-platform.git
