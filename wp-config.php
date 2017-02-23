@@ -119,7 +119,7 @@ $hm_platform = array(
 	'ludicrousdb'     => true,
 );
 
-if ( $hm_platform['memcached'] && class_exists( 'Memcached' ) ) {
+if ( $hm_platform['memcached'] && ! class_exists( 'Memcached' ) ) {
     trigger_error( E_USER_WARNING, 'Memcache enabled but Memcached not found' );
 }
 
