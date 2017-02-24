@@ -14,6 +14,7 @@ checkout:
 
 dependencies:
   pre:
+    - sudo apt-get update
     - sudo apt-get install php-memcached || true
   post:
     - npm install -g casperjs
