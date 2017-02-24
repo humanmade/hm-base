@@ -16,7 +16,7 @@ dependencies:
   pre:
     - sudo add-apt-repository ppa:ondrej/php -y
     - sudo apt-get update
-    - sudo apt-get install php-memcached7.0 || true
+    - sudo apt-get install php-memcached || true
   post:
     - npm install -g casperjs
     - yes '' | pecl install memcache
