@@ -29,7 +29,7 @@ test:
     - find -L ./ -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l > /dev/null
     - mysql -e 'create database wp_tests;'
   override:
-    - phpunit
+    - phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml
     - ./php-codesniffer/scripts/phpcs -p --extensions=php --standard=./codesniffer-ruleset.xml ./ -v -q
     - php -S 127.0.0.1:8080:
         background: true
