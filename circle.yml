@@ -1,6 +1,8 @@
 machine:
   php:
     version: 7.0.4
+  services:
+    - memcached
 
 checkout:
   post:
@@ -11,12 +13,6 @@ checkout:
     - git submodule update --init --recursive || (rm -fr .git/config .git/modules && git submodule deinit -f . && git submodule update --init --recursive)
 
 dependencies:
-  pre:
-    # load memcached module
-    - sudo apt-get update
-    - sudo apt-get install libmemcached-dev
-    - printf "\n" | pecl install -f memcached-2.1.0
-    - echo "extension = memcached.so" >> /home/ubuntu/.phpenv/versions/7.0.4/etc/php.ini
   post:
     - npm install -g casperjs
     - yes '' | pecl install memcache
