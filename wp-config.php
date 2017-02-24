@@ -127,7 +127,7 @@ if ( $hm_platform['memcached'] && ! class_exists( 'Memcached' ) ) {
 // Add Cache Control headers for 1 year to S3 Uploads.
 defined( 'S3_UPLOADS_HTTP_CACHE_CONTROL' ) or define( 'S3_UPLOADS_HTTP_CACHE_CONTROL', 60 * 60 * 24 * 365 );
 
-if ( ! defined( 'HM_DEV' ) {
+if ( ! defined( 'HM_DEV' ) ) {
 	defined( 'WP_CACHE' ) or define( 'WP_CACHE', true );
 }
 
