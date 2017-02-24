@@ -16,7 +16,7 @@ dependencies:
     - sudo apt-get update
     - sudo apt-get install libmemcached-dev
     - printf "\n" | pecl install -f memcached-2.1.0
-    - echo "extension = memcached.so" >> /opt/circleci/php/7.0/etc/php.ini
+    - echo "extension = memcached.so" >> /home/ubuntu/.phpenv/versions/7.0.4/etc/php.ini
   post:
     - npm install -g casperjs
     - yes '' | pecl install memcache
