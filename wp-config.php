@@ -102,8 +102,9 @@ defined( 'WPMU_PLUGIN_URL' ) or define( 'WPMU_PLUGIN_URL', WP_CONTENT_URL . '/pl
 // Prevent editing of files through the admin.
 // Enable installing and upgrading plugins for dev sites.
 define( 'DISALLOW_FILE_EDIT', true );
-define( 'DISALLOW_FILE_MODS', ! HM_DEV );
-
+if ( defined( 'HM_DEV' ) ) {
+	define( 'DISALLOW_FILE_MODS', ! HM_DEV );
+}
 // Load the HM Library for HM Hosting
 require_once WP_CONTENT_DIR . '/hm-platform/load.php';
 
