@@ -83,7 +83,7 @@ if ( ! defined( 'DB_CHARSET' ) ) {
 }
 /** The Database Collate type. Don't change this if in doubt. */
 if ( ! defined( 'DB_COLLATE' ) ) {
-d   efine( 'DB_COLLATE', 'utf8mb4_general_ci' );
+	define( 'DB_COLLATE', 'utf8mb4_general_ci' );
 }
 // Define Site URL: WordPress in a subdirectory.
 defined( 'WP_SITEURL' )      or define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] );
