@@ -17,6 +17,7 @@ dependencies:
     - sudo add-apt-repository ppa:ondrej/php -y
     - sudo apt-get update
     - sudo apt-get install libmemcached-dev libmemcached11
+    - echo "extension = memcached.so" >> /opt/circleci/php/7.0.11/etc/php.ini
   post:
     - npm install -g casperjs
     - yes '' | pecl install memcached
@@ -29,6 +30,7 @@ dependencies:
     # Set install path for WordPress Coding Standards
     # @link https://github.com/squizlabs/PHP_CodeSniffer/blob/4237c2fc98cc838730b76ee9cee316f99286a2a7/CodeSniffer.php#L1941
     - ./php-codesniffer/scripts/phpcs --config-set installed_paths ../wordpress-coding-standards
+    - sudo service apache2 restart
 
 test:
   pre:
