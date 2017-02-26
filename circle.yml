@@ -18,6 +18,7 @@ dependencies:
     - sudo apt-get update
     - sudo apt-get install libmemcached-dev libmemcached11
     - echo "extension = memcached.so" >> /opt/circleci/php/7.0.11/etc/php.ini
+    - echo "memory_limit = 512M" >> /opt/circleci/php/7.0.11/etc/php.ini
   post:
     - npm install -g casperjs
     - yes '' | pecl install memcached
@@ -36,7 +37,7 @@ test:
     - find -L ./ -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l > /dev/null
     - mysql -e 'create database wp_tests;'
   override:
-    - phpunit -d memory_limit=512M
+    - phpunit
     - ./php-codesniffer/scripts/phpcs -p --extensions=php --standard=./codesniffer-ruleset.xml ./ -v -q
     - php -S 127.0.0.1:8080:
         background: true
