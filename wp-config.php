@@ -77,8 +77,14 @@ $table_prefix  = 'wp_';
  */
 define( 'WPLANG', '' );
 
-define( 'DB_CHARSET', 'utf8mb4' );
-
+/** Database Charset to use in creating database tables. */
+if ( ! defined( 'DB_CHARSET' ) ) {
+	define( 'DB_CHARSET', 'utf8mb4' );
+}
+/** The Database Collate type. Don't change this if in doubt. */
+if ( ! defined( 'DB_COLLATE' ) ) {
+	define( 'DB_COLLATE', 'utf8mb4_general_ci' );
+}
 // Define Site URL: WordPress in a subdirectory.
 defined( 'WP_SITEURL' )      or define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] );
 
@@ -96,12 +102,32 @@ defined( 'WPMU_PLUGIN_URL' ) or define( 'WPMU_PLUGIN_URL', WP_CONTENT_URL . '/pl
 // Prevent editing of files through the admin.
 // Enable installing and upgrading plugins for dev sites.
 define( 'DISALLOW_FILE_EDIT', true );
-define( 'DISALLOW_FILE_MODS', ! HM_DEV );
+if ( defined( 'HM_DEV' ) ) {
+	define( 'DISALLOW_FILE_MODS', ! HM_DEV );
+}
+// Load the HM Library for HM Hosting
+require_once WP_CONTENT_DIR . '/hm-platform/load.php';
+
+global $hm_platform;
+
+$hm_platform = array(
+	's3-uploads'      => true,
+	'aws-ses-wp-mail' => true,
+	'tachyon'         => true,
+	'cavalcade'       => true,
+	'batcache'        => true,
+	'memcached'       => true,
+	'ludicrousdb'     => true,
+);
+
+if ( $hm_platform['memcached'] && ! class_exists( 'Memcached' ) ) {
+    trigger_error( E_USER_WARNING, 'Memcache enabled but Memcached not found' );
+}
 
 // Add Cache Control headers for 1 year to S3 Uploads.
 defined( 'S3_UPLOADS_HTTP_CACHE_CONTROL' ) or define( 'S3_UPLOADS_HTTP_CACHE_CONTROL', 60 * 60 * 24 * 365 );
 
-if ( ! HM_DEV ) {
+if ( ! defined( 'HM_DEV' ) ) {
 	defined( 'WP_CACHE' ) or define( 'WP_CACHE', true );
 }
 
