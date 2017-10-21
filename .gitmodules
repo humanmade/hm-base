@@ -1,3 +1,6 @@
 [submodule "content/hm-platform"]
 	path = content/hm-platform
 	url = git@github.com:humanmade/hm-platform.git
+[submodule "wordpress"]
+	path = wordpress
+	url = https://github.com/wordpress/wordpress.git
