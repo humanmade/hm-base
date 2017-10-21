@@ -111,13 +111,14 @@ require_once WP_CONTENT_DIR . '/hm-platform/load.php';
 global $hm_platform;
 
 $hm_platform = array(
-	's3-uploads'      => true,
-	'aws-ses-wp-mail' => true,
-	'tachyon'         => true,
+	's3-uploads'      => false,
+	'aws-ses-wp-mail' => false,
+	'tachyon'         => false,
 	'cavalcade'       => true,
 	'batcache'        => true,
-	'memcached'       => true,
-	'ludicrousdb'     => true,
+	'memcached'       => false,
+	'redis'           => true,
+	'ludicrousdb'     => false,
 );
 
 if ( $hm_platform['memcached'] && ! class_exists( 'Memcached' ) ) {
