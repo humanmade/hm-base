@@ -1,0 +1,6 @@
+.git*
+.tests
+circle.yml
+phpunit.xml.dist
+codesniffer-ruleset.xml
+*.md
