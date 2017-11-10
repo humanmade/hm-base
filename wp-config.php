@@ -114,10 +114,10 @@ $hm_platform = array(
 	's3-uploads'      => false,
 	'aws-ses-wp-mail' => false,
 	'tachyon'         => false,
-	'cavalcade'       => true,
-	'batcache'        => true,
+	'cavalcade'       => false,
+	'batcache'        => false,
 	'memcached'       => false,
-	'redis'           => true,
+	'redis'           => false,
 	'ludicrousdb'     => false,
 );
 
