@@ -115,9 +115,9 @@ $hm_platform = array(
 	'aws-ses-wp-mail' => false,
 	'tachyon'         => false,
 	'cavalcade'       => false,
-	'batcache'        => false,
+	'batcache'        => true,
 	'memcached'       => false,
-	'redis'           => false,
+	'redis'           => true,
 	'ludicrousdb'     => false,
 );
 
