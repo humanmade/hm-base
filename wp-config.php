@@ -121,7 +121,7 @@ $hm_platform = array(
 );
 
 if ( $hm_platform['memcached'] && ! class_exists( 'Memcached' ) ) {
-    trigger_error( E_USER_WARNING, 'Memcache enabled but Memcached not found' );
+    trigger_error( 'Memcache enabled but Memcached not found', E_USER_WARNING );
 }
 
 // Add Cache Control headers for 1 year to S3 Uploads.
