@@ -113,7 +113,7 @@ global $hm_platform;
 $hm_platform = array(
 	's3-uploads'      => true,
 	'aws-ses-wp-mail' => false,
-	'tachyon'         => false,
+	'tachyon'         => true,
 	'cavalcade'       => false,
 	'batcache'        => true,
 	'memcached'       => false,
