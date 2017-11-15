@@ -22,7 +22,3 @@ if( defined('DISPLAY_ERRORS') && DISPLAY_ERRORS ) {
     error_reporting(E_ALL);
     @ini_set('display_errors', 1);
 }
-
-if (defined('REGISTER_WP_THEMES') && REGISTER_WP_THEMES) {
-    register_theme_directory(ABSPATH . 'wp-content/themes');
-}
