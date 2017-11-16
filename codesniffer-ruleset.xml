@@ -7,12 +7,16 @@
 	-->
 	<rule ref="WordPress-Core" />
 	<exclude-pattern>wordpress/*</exclude-pattern>
+	<exclude-pattern>wp-config*</exclude-pattern>
+	<exclude-pattern>chassis/*</exclude-pattern>
+	<exclude-pattern>content/hm-platform/*</exclude-pattern>
 	<exclude-pattern>content/plugins-mu/s3-uploads/*</exclude-pattern>
 	<exclude-pattern>content/plugins-mu/aws-ses-wp-mail/*</exclude-pattern>
 	<exclude-pattern>content/plugins-mu/batcache/*</exclude-pattern>
 	<exclude-pattern>content/plugins-mu/ludicrousdb/*</exclude-pattern>
 	<exclude-pattern>content/plugins-mu/memcached-object-cache/*</exclude-pattern>
 	<exclude-pattern>content/plugins-mu/memcached-object-cache-pecl/*</exclude-pattern>
+	<exclude-pattern>content/themes/twenty*</exclude-pattern>
 	<exclude-pattern>php-codesniffer/*</exclude-pattern>
 	<exclude-pattern>*/index.php</exclude-pattern>
 	<exclude-pattern>*/tests/*</exclude-pattern>
