@@ -16,7 +16,7 @@ database:
   override:
     - mysql -u ubuntu -e "create database wp_tests"
     - mysql -u ubuntu -e "create user root"
-    - mysql -u ubuntu -e "grant all on wp_tests.* to 'root'@'localhost' identified by ''";
+    - mysql -u ubuntu -e "grant all on wp_tests.* to 'root'@'localhost' identified by 'password'";
 
 dependencies:
   pre:
@@ -40,6 +40,8 @@ dependencies:
 
 test:
   pre:
+  # We need WordPress.
+    - bash ./bin/circleci/install-wp-tests.sh "wp_tests" "root" "password"
     - find -L ./ -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l > /dev/null
   override:
     - phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml
