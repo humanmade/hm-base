@@ -12,6 +12,12 @@ checkout:
     - git submodule foreach git fetch --tags
     - git submodule update --init --recursive || (rm -fr .git/config .git/modules && git submodule deinit -f . && git submodule update --init --recursive)
 
+database:
+  override:
+    - mysql -u ubuntu -e "create database wp_tests"
+    - mysql -u ubuntu -e "create user admin"
+    - mysql -u ubuntu -e "grant all on wp_tests.* to 'admin'@'localhost' identified by 'password'";
+
 dependencies:
   pre:
     - sudo add-apt-repository ppa:ondrej/php -y
@@ -35,7 +41,6 @@ dependencies:
 test:
   pre:
     - find -L ./ -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l > /dev/null
-    - mysql -e 'create database wp_tests;'
   override:
     - phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml
     - ./php-codesniffer/bin/phpcs -p --extensions=php --standard=./codesniffer-ruleset.xml ./ -v -q
