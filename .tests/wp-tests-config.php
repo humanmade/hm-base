@@ -16,3 +16,8 @@ define( 'WP_TESTS_TITLE', 'Test Blog' );
 define( 'WP_PHP_BINARY', 'php' );
 
 include_once( __DIR__ . '/../wp-config.php' );
+
+echo DB_NAME;
+echo DB_USER;
+echo DB_PASSWORD;
+echo DB_HOST;
