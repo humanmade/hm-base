@@ -49,5 +49,4 @@ test:
     - php -S 127.0.0.1:8080:
         background: true
     - sleep 5
-    - cp .tests/wp-casperjs-tests-config.php wp-config-local.php
     - casperjs test .tests/casperjs --url=http://localhost:8080 --log-level=debug
