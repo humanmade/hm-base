@@ -4,3 +4,6 @@
 [submodule "wordpress"]
 	path = wordpress
 	url = git@github.com:WordPress/WordPress.git
+[submodule "content/plugins-mu/elasticpress"]
+	path = content/plugins-mu/elasticpress
+	url = https://github.com/10up/ElasticPress.git
