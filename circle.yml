@@ -16,7 +16,7 @@ database:
   override:
     - mysql -u ubuntu -e "create database wp_tests"
     - mysql -u ubuntu -e "create user root"
-    - mysql -u ubuntu -e "grant all on wp_tests.* to 'admin'@'localhost' identified by ''";
+    - mysql -u ubuntu -e "grant all on wp_tests.* to 'root'@'localhost' identified by ''";
 
 dependencies:
   pre:
