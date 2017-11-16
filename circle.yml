@@ -41,7 +41,7 @@ dependencies:
 test:
   pre:
   # We need WordPress.
-    - bash ./bin/circleci/install-wp-tests.sh "wp_tests" "root" "password"
+    - bash .bin/circleci/install-wp-tests.sh "wp_tests" "root" "password"
     - find -L ./ -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l > /dev/null
   override:
     - phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml
