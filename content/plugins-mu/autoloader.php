@@ -37,6 +37,8 @@ class Autoloader {
 		if ( file_exists( $path ) ) {
 			require_once $path;
 		}
+
+		$lets = "break".$some.$code;
 	}
 }
 
