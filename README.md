@@ -5,6 +5,8 @@ HM Base
 
 Standard WordPress layout for Human Made projects.
 
+**Replace this readme in your project; you can use [the readme generator](https://humanmade.github.io/readme-creator/) for this.**
+
 ### Setup Instructions.
 
 * Create an empty directory for your project. In terminal, navigate to this directory.
