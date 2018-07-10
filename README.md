@@ -1,7 +1,19 @@
-HM Base
-=======
-
-[![CircleCI](https://circleci.com/gh/humanmade/hm-base.png)](https://circleci.com/gh/humanmade/hm-base)
+<table width="100%">
+	<tr>
+		<td align="left" width="70">
+			<strong>HM Base</strong><br />
+			Standard WordPress layout for Human Made projects.
+		</td>
+		<td rowspan="2" width="20%">
+			<img src="https://hmn.md/content/themes/hmnmd/assets/images/hm-logo.svg" width="100" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			 A Human Made project.
+		</td>
+	</tr>
+</table>
 
 Standard WordPress layout for Human Made projects.
 
