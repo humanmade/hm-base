@@ -16,6 +16,20 @@ git clone --recursive git://github.com/humanmade/hm-base.git your-project-name
 # Navigate to the new directory.
 cd your-project-name
 
+# Update hm-platform
+cd content/hm-platform
+git checkout master
+cd ../..
+git add content/hm-platform
+git commit -m 'Update hm-platform to latest'
+
+# Update WordPress.
+cd wordpress
+git checkout 4.9.7
+cd ..
+git add wordpress
+git commit -m 'Update WordPress to 4.9.7'
+
 # Remove the hm-base remote:
 git remote rm origin
 
