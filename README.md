@@ -19,7 +19,7 @@ Standard WordPress layout for Human Made projects.
 
 **Replace this readme in your project; you can use [the readme generator](https://humanmade.github.io/readme-creator/) for this.**
 
-### Setup Instructions.
+## Setup Instructions.
 
 ```sh
 # Clone this repository:
@@ -55,7 +55,7 @@ git push origin master
 cp wp-config-local-sample.php wp-config-local.php
 ```
 
-### Notes
+## Notes
 
 * HM Base sets the MU Plugins directory to `plugins-mu` instead of `mu-plugins` for consistency.
 
