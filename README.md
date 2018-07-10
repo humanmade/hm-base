@@ -9,14 +9,25 @@ Standard WordPress layout for Human Made projects.
 
 ### Setup Instructions.
 
-* Create an empty directory for your project. In terminal, navigate to this directory.
-* Clone the repository `git clone --recursive git://github.com/humanmade/hm-base.git .`
-* Remove the hm-base remote. `git remote rm origin`
-* Add the remote for your new project `git remote add origin [url]`
-* Push to the new remote `git push origin master`
-	* Local site: `mv wp-config-sample.php wp-config-local.php`, then add your local database settings.
+```sh
+# Clone this repository:
+git clone --recursive git://github.com/humanmade/hm-base.git your-project-name
 
-Done!
+# Navigate to the new directory.
+cd your-project-name
+
+# Remove the hm-base remote:
+git remote rm origin
+
+# Add the remote for your new project:
+git remote add origin git@github.com:humanmade/your-project-name.git
+
+# Push to the new remote
+git push origin master
+
+# Add a local config:
+cp wp-config-local-sample.php wp-config-local.php
+```
 
 ### Notes
 
