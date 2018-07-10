@@ -1,27 +1,65 @@
-HM Base
-=======
-
-[![CircleCI](https://circleci.com/gh/humanmade/hm-base.png)](https://circleci.com/gh/humanmade/hm-base)
+<table width="100%">
+	<tr>
+		<td align="left" width="70">
+			<strong>HM Base</strong><br />
+			Standard WordPress layout for Human Made projects.
+		</td>
+		<td rowspan="2" width="20%">
+			<img src="https://hmn.md/content/themes/hmnmd/assets/images/hm-logo.svg" width="100" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			 A Human Made project.
+		</td>
+	</tr>
+</table>
 
 Standard WordPress layout for Human Made projects.
 
-### Setup Instructions.
+**Replace this readme in your project; you can use [the readme generator](https://humanmade.github.io/readme-creator/) for this.**
 
-* Create an empty directory for your project. In terminal, navigate to this directory.
-* Clone the repository `git clone --recursive git://github.com/humanmade/hm-base.git .`
-* Remove the hm-base remote. `git remote rm origin`
-* Add the remote for your new project `git remote add origin [url]`
-* Push to the new remote `git push origin master`
-* Add your database settings.
+## Setup Instructions.
 
-	* Local site: `mv wp-config-sample.php wp-config-local.php`, then add your local database settings.
-	* Live site: Production database settings should be added to `wp-config.php`.
+```sh
+# Clone this repository:
+git clone --recursive git://github.com/humanmade/hm-base.git your-project-name
 
-Done!
+# Navigate to the new directory.
+cd your-project-name
 
-### Notes
+# Update hm-platform
+cd content/hm-platform
+git checkout master
+cd ../..
+git add content/hm-platform
+git commit -m 'Update hm-platform to latest'
 
-* HM Base sets the MU Plugins directory to `plugins-mu` instead of `mu-plugins` for consistency.
+# Update WordPress.
+cd wordpress
+git checkout 4.9.7
+cd ..
+git add wordpress
+git commit -m 'Update WordPress to 4.9.7'
+
+# Remove the hm-base remote:
+git remote rm origin
+
+# Add the remote for your new project:
+git remote add origin git@github.com:humanmade/your-project-name.git
+
+# Push to the new remote
+git push origin master
+
+# Add a local config:
+cp wp-config-local-sample.php wp-config-local.php
+```
+
+## Structure
+
+HM Base follows the [standard structure](https://engineering.hmn.md/standards/structure/) for HM projects.
+
+Additionally, it sets the MU Plugins directory to `plugins-mu` instead of `mu-plugins` for consistency.
 
 ## Contribution guidelines ##
 
