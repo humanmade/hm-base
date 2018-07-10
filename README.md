@@ -14,10 +14,7 @@ Standard WordPress layout for Human Made projects.
 * Remove the hm-base remote. `git remote rm origin`
 * Add the remote for your new project `git remote add origin [url]`
 * Push to the new remote `git push origin master`
-* Add your database settings.
-
 	* Local site: `mv wp-config-sample.php wp-config-local.php`, then add your local database settings.
-	* Live site: Production database settings should be added to `wp-config.php`.
 
 Done!
 
