@@ -55,9 +55,11 @@ git push origin master
 cp wp-config-local-sample.php wp-config-local.php
 ```
 
-## Notes
+## Structure
 
-* HM Base sets the MU Plugins directory to `plugins-mu` instead of `mu-plugins` for consistency.
+HM Base follows the [standard structure](https://engineering.hmn.md/standards/structure/) for HM projects.
+
+Additionally, it sets the MU Plugins directory to `plugins-mu` instead of `mu-plugins` for consistency.
 
 ## Contribution guidelines ##
 
