@@ -1,0 +1,16 @@
+#!/bin/bash
+# .build-script
+#
+# This script is run automatically when deploying to Human Made servers.
+#
+# https://docs.humanmade.com/beta/cloud/build-scripts/
+
+# Fail on any errors.
+set -e
+
+# Run any build pieces you need here. For example:
+
+#npm install -g grunt
+#cd content/themes/projecttheme/
+#npm install
+#grunt
