@@ -63,7 +63,7 @@ add_action( 'pre_current_active_plugins', function () use ( $hm_mu_plugins ) {
 
 	$wp_list_table->set_pagination_args( array(
 		'total_items' => $total_this_page,
-		'per_page' => $plugins_per_page,
+		'per_page'    => $plugins_per_page,
 	) );
 });
 

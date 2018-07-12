@@ -12,6 +12,12 @@ checkout:
     - git submodule foreach git fetch --tags
     - git submodule update --init --recursive || (rm -fr .git/config .git/modules && git submodule deinit -f . && git submodule update --init --recursive)
 
+database:
+  override:
+    - mysql -u ubuntu -e "create database wp_tests"
+    - mysql -u ubuntu -e "create user root"
+    - mysql -u ubuntu -e "grant all on wp_tests.* to 'root'@'localhost' identified by 'password'";
+
 dependencies:
   pre:
     - sudo add-apt-repository ppa:ondrej/php -y
@@ -30,17 +36,17 @@ dependencies:
     - cd php-codesniffer
     # Set install path for WordPress Coding Standards
     # @link https://github.com/squizlabs/PHP_CodeSniffer/blob/4237c2fc98cc838730b76ee9cee316f99286a2a7/CodeSniffer.php#L1941
-    - ./php-codesniffer/scripts/phpcs --config-set installed_paths ../wordpress-coding-standards
+    - ./php-codesniffer/bin/phpcs --config-set installed_paths ../wordpress-coding-standards
 
 test:
   pre:
-    - find -L ./ -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l > /dev/null
-    - mysql -e 'create database wp_tests;'
+  # We need WordPress.
+    - bash .bin/circleci/install-wp-tests.sh "wp_tests" "root" "password"
+    - find -L ./ -name '*.php' -not -path './wordpress/*' -print0 | xargs -0 -n 1 -P 4 php -l > /dev/null
   override:
     - phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml
-    - ./php-codesniffer/scripts/phpcs -p --extensions=php --standard=./codesniffer-ruleset.xml ./ -v -q
+    - ./php-codesniffer/bin/phpcs -p --extensions=php --standard=./codesniffer-ruleset.xml ./ -v -q
     - php -S 127.0.0.1:8080:
         background: true
     - sleep 5
-    - cp .tests/wp-casperjs-tests-config.php wp-config-local.php
     - casperjs test .tests/casperjs --url=http://localhost:8080 --log-level=debug
