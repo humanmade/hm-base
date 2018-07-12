@@ -25,7 +25,9 @@ class Autoloader {
 		$class = strtolower( $class );
 		$file  = '';
 
-		if ( false !== ( $last_ns_pos = strripos( $class, self::NS_SEPARATOR ) ) ) {
+		// Split on namespace separator.
+		$last_ns_pos = strripos( $class, self::NS_SEPARATOR );
+		if ( $last_ns_pos !== false ) {
 			$namespace = substr( $class, 0, $last_ns_pos );
 			$class     = substr( $class, $last_ns_pos + 1 );
 			$file      = str_replace( self::NS_SEPARATOR, DIRECTORY_SEPARATOR, $namespace ) . DIRECTORY_SEPARATOR;
