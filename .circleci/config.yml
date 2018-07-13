@@ -13,7 +13,7 @@ jobs:
             - run:
                 name: "Install memcached"
                 command: |
-                    sudo apt-get install memcached
+                    sudo apt-get install memcached libmemcached-dev libmemcached11
                     sudo service memcached status || sudo service memcached start
 
             - run:
@@ -31,7 +31,6 @@ jobs:
             - run:
                 name: "Install memcache"
                 command: |
-                    sudo apt-get install libmemcached-dev libmemcached11
                     sudo pecl install memcached
                     echo "extension = memcached.so" | sudo tee --append /usr/local/etc/php/conf.d/memcache.ini
                     echo "memory_limit = 512M" | sudo tee --append /usr/local/etc/php/conf.d/memcache.ini
