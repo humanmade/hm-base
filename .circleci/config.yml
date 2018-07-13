@@ -70,7 +70,9 @@ jobs:
 
             - run:
                 name: "Prepare test database"
-                command: bash .bin/circleci/install-wp-tests.sh "wp_tests" "root" "password"
+                command: |
+                    sudo mysql -uroot mysql -e "UPDATE user SET plugin='mysql_native_password' WHERE User='root'; FLUSH PRIVILEGES"
+                    bash .bin/circleci/install-wp-tests.sh "wp_tests" "root" "password"
 
             - run:
                 name: "Run PHPUnit"
