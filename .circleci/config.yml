@@ -11,6 +11,10 @@ jobs:
                 command: sudo apt-get update
 
             - run:
+                name: "Install svn for WordPress"
+                command: sudo apt-get install subversion
+
+            - run:
                 name: "Install memcached"
                 command: |
                     sudo apt-get install memcached libmemcached-dev libmemcached11
