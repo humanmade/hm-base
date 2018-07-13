@@ -6,7 +6,9 @@ jobs:
 
         steps:
             # Prepare for later installations
-            - run: sudo apt-get update
+            - run:
+                name: "Update apt"
+                command: sudo apt-get update
 
             - run:
                 name: "Install memcached"
