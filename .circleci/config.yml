@@ -1,0 +1,105 @@
+version: 2
+jobs:
+    build:
+        docker:
+        - image: circleci/php:7.0-node-browsers
+
+        steps:
+            # Prepare for later installations
+            - run:
+                name: "Update apt"
+                command: sudo apt-get update
+
+            - run:
+                name: "Install svn for WordPress"
+                command: sudo apt-get install subversion
+
+            - run:
+                name: "Install memcached"
+                command: |
+                    sudo apt-get install memcached libmemcached-dev libmemcached11
+                    sudo service memcached status || sudo service memcached start
+
+            - run:
+                name: "Install MySQL"
+                command: |
+                    sudo apt-get install mysql-server
+                    sudo service mysql status || sudo service mysql start
+                    sudo docker-php-ext-install mysqli
+
+            - run:
+                name: "Install Casper"
+                command: sudo npm install -g casperjs
+
+            # Install memcache
+            - run:
+                name: "Install memcache"
+                command: |
+                    sudo pecl install memcached
+                    echo "extension = memcached.so" | sudo tee --append /usr/local/etc/php/conf.d/memcache.ini
+                    echo "memory_limit = 512M" | sudo tee --append /usr/local/etc/php/conf.d/memcache.ini
+
+            # Install phpcs
+            - run:
+                name: "Install phpcs"
+                command: |
+                    mkdir ~/php-codesniffer && curl -L https://github.com/squizlabs/PHP_CodeSniffer/archive/master.tar.gz | tar xz --strip-components=1 -C ~/php-codesniffer
+                    mkdir ~/wordpress-coding-standards && curl -L https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/archive/master.tar.gz | tar xz --strip-components=1 -C ~/wordpress-coding-standards
+
+            # Install phpunit
+            - run:
+                name: "Install PHPUnit"
+                command: |
+                    sudo wget -O /usr/local/bin/phpunit https://phar.phpunit.de/phpunit-6.phar
+                    sudo chmod +x /usr/local/bin/phpunit
+
+            # Check out the code.
+            - checkout
+            - run:
+                name: "Check out submodules"
+                command: |
+                    git submodule sync
+                    git submodule foreach git prune
+                    git submodule foreach git fetch --all
+                    git submodule foreach git fetch --tags
+                    git submodule update --init --recursive || (rm -fr .git/config .git/modules && git submodule deinit -f . && git submodule update --init --recursive)
+
+            - run:
+                name: "Run PHP Lint"
+                command: find -L ./ -name '*.php' -not -path './wordpress/*' -print0 | xargs -0 -n 1 -P 4 php -l > /dev/null
+
+            - run:
+                name: "Prepare test database"
+                command: |
+                    sudo mysql -uroot mysql -e "UPDATE user SET plugin='mysql_native_password' WHERE User='root'; FLUSH PRIVILEGES"
+                    bash .bin/circleci/install-wp-tests.sh "wp_tests" "root" "" "127.0.0.1"
+
+            - run:
+                name: "Run PHPUnit"
+                command: |
+                    mkdir -p ~/phpunit
+                    phpunit --log-junit ~/phpunit/junit.xml
+
+            # Run phpcs
+            - run:
+                name: "Run phpcs"
+                command: |
+                    ~/php-codesniffer/bin/phpcs --config-set installed_paths ../wordpress-coding-standards
+                    ~/php-codesniffer/bin/phpcs -p --extensions=php --standard=./codesniffer-ruleset.xml ./ -v -q
+
+            # Run Casper tests
+            - run:
+                name: "Set up PHP server"
+                command: php -S 127.0.0.1:8080
+                background: true
+            - run:
+                name: "Run Casper"
+                command: |
+                    sleep 5
+                    casperjs test .tests/casperjs --url=http://localhost:8080 --log-level=debug
+
+            # Teardown
+            - store_test_results:
+                path: ~/phpunit
+            - store_artifacts:
+                path: ~/phpunit
