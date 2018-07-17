@@ -2,8 +2,7 @@
 /**
  * The template for displaying the footer.
  *
- * @package WordPress
- * @subpackage HM_Base_Theme
+ * @package HM_Base
  */
 ?>
 
