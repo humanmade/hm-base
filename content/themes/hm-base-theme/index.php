@@ -1,12 +1,10 @@
 <?php
 /**
- * The default template file
+ * The default template file.
  *
- * @package WordPress
- * @subpackage HM_Base_Theme
+ * @package HM_Base
  */
-?>
-	
-<?php get_header(); ?>
 
-<?php get_footer(); ?>
+get_header();
+
+get_footer();
