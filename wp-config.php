@@ -117,7 +117,6 @@ $hm_platform = array(
 	'cavalcade'       => true,
 	'batcache'        => true,
 	'ludicrousdb'     => true,
-	'xray'            => true,
 	'memcached'       => HM_ENV_ARCHITECTURE !== 'ecs',
 	'redis'           => HM_ENV_ARCHITECTURE === 'ecs',
 );
