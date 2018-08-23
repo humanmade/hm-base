@@ -105,6 +105,9 @@ define( 'DISALLOW_FILE_EDIT', true );
 if ( defined( 'HM_DEV' ) ) {
 	define( 'DISALLOW_FILE_MODS', ! HM_DEV );
 }
+
+defined( 'HM_ENV_ARCHITECTURE' ) or define( 'HM_ENV_ARCHITECTURE', 'ami-application-stack' );
+
 global $hm_platform;
 
 $hm_platform = array(
@@ -113,8 +116,10 @@ $hm_platform = array(
 	'tachyon'         => true,
 	'cavalcade'       => true,
 	'batcache'        => true,
-	'memcached'       => true,
 	'ludicrousdb'     => true,
+	'xray'            => true,
+	'memcached'       => HM_ENV_ARCHITECTURE !== 'ecs',
+	'redis'           => HM_ENV_ARCHITECTURE === 'ecs',
 );
 
 if ( $hm_platform['memcached'] && ! class_exists( 'Memcached' ) ) {
