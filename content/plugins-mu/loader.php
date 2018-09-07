@@ -1,21 +1,20 @@
 <?php
-
-/*
-Plugin Name: HM MU Plugin Loader
-Description: Loads the MU plugins required to run the site
-Author: Human Made Limited
-Author URI: http://hmn.md/
-Version: 1.0
-*/
+/**
+ * Plugin Name: HM MU Plugin Loader
+ * Description: Loads the MU plugins required to run the site
+ * Author: Human Made Limited
+ * Author URI: http://hmn.md/
+ * Version: 1.0
+ *
+ * @package hm-base
+ */
 
 if ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) {
 	return;
 }
 
 $hm_mu_plugins = array(
-
 	// load mu-plugins here.
-
 );
 
 foreach ( $hm_mu_plugins as $file ) {
@@ -26,7 +25,7 @@ unset( $file );
 add_action( 'pre_current_active_plugins', function () use ( $hm_mu_plugins ) {
 	global $plugins, $wp_list_table;
 
-	// Add our own mu-plugins to the page
+	// Add our own mu-plugins to the page.
 	foreach ( $hm_mu_plugins as $plugin_file ) {
 		$plugin_data = get_plugin_data( WPMU_PLUGIN_DIR . "/$plugin_file", false, false ); //Do not apply markup/translate as it'll be cached.
 
@@ -37,15 +36,15 @@ add_action( 'pre_current_active_plugins', function () use ( $hm_mu_plugins ) {
 		$plugins['mustuse'][ $plugin_file ] = $plugin_data;
 	}
 
-	// Recount totals
+	// Recount totals.
 	$GLOBALS['totals']['mustuse'] = count( $plugins['mustuse'] );
 
-	// Only apply the rest if we're actually looking at the page
+	// Only apply the rest if we're actually looking at the page.
 	if ( $GLOBALS['status'] !== 'mustuse' ) {
 		return;
 	}
 
-	// Reset the list table's data
+	// Reset the list table's data.
 	$wp_list_table->items = $plugins['mustuse'];
 	foreach ( $wp_list_table->items as $plugin_file => $plugin_data ) {
 		$wp_list_table->items[ $plugin_file ] = _get_plugin_data_markup_translate( $plugin_file, $plugin_data, false, true );
@@ -57,8 +56,8 @@ add_action( 'pre_current_active_plugins', function () use ( $hm_mu_plugins ) {
 		uasort( $wp_list_table->items, array( $wp_list_table, '_order_callback' ) );
 	}
 
-	// Force showing all plugins
-	// See https://core.trac.wordpress.org/ticket/27110
+	// Force showing all plugins.
+	// See https://core.trac.wordpress.org/ticket/27110.
 	$plugins_per_page = $total_this_page;
 
 	$wp_list_table->set_pagination_args( array(
