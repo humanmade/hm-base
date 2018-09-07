@@ -11,6 +11,8 @@
 	<!-- Ignored directories -->
 	<exclude-pattern>/^.*/g</exclude-pattern>
 	<exclude-pattern>chassis/*</exclude-pattern>
+	<exclude-pattern>content/themes/twenty*/*</exclude-pattern>
+	<exclude-pattern>hm-platform/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>wordpress/*</exclude-pattern>
 	<exclude-pattern>wp-config*</exclude-pattern>
@@ -18,4 +20,5 @@
 	<!-- Ignore specific index files -->
 	<exclude-pattern>content/themes/index.php</exclude-pattern>
 	<exclude-pattern>content/plugins/index.php</exclude-pattern>
+	<exclude-pattern>/index.php</exclude-pattern>
 </ruleset>
