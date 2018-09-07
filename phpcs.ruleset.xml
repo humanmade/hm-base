@@ -2,10 +2,12 @@
 <ruleset name="hm-base">
 	<description>WordPress rules for use with hm base</description>
 
-	<!--
-	Include all the rules in the WordPress Standard.
-	-->
-	<rule ref="WordPress-Core" />
+	<!-- Use HM Coding Standards -->
+	<rule ref="vendor/humanmade/coding-standards" />
+
+	<!-- Add PHPDoc rules -->
+	<rule ref="WordPress-Docs" />
+	
 	<exclude-pattern>wordpress/*</exclude-pattern>
 	<exclude-pattern>wp-config*</exclude-pattern>
 	<exclude-pattern>chassis/*</exclude-pattern>
