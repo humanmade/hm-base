@@ -27,7 +27,8 @@ add_action( 'pre_current_active_plugins', function () use ( $hm_mu_plugins ) {
 
 	// Add our own mu-plugins to the page.
 	foreach ( $hm_mu_plugins as $plugin_file ) {
-		$plugin_data = get_plugin_data( WPMU_PLUGIN_DIR . "/$plugin_file", false, false ); //Do not apply markup/translate as it'll be cached.
+		// Do not apply markup/translate as it'll be cached.
+		$plugin_data = get_plugin_data( WPMU_PLUGIN_DIR . "/$plugin_file", false, false );
 
 		if ( empty( $plugin_data['Name'] ) ) {
 			$plugin_data['Name'] = $plugin_file;

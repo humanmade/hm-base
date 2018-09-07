@@ -1,9 +1,9 @@
 <?php
 /**
-  * Bootstrap the plugin unit testing environment.
-  *
-  * @package hm-base
-  */
+ * Bootstrap the plugin unit testing environment.
+ *
+ * @package hm-base
+ */
 
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
 
