@@ -25,6 +25,9 @@
 			],
 			"content/plugins/{$name}/": [
 				"type:wordpress-plugin"
+			],
+			"content/{$name}/": [
+				"type:wordpress-dropin"
 			]
 		}
 	}
