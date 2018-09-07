@@ -2,9 +2,6 @@
 	"name": "hm-base",
 	"license": "GPL V3+",
 	"minimum-stability": "stable",
-	"config": {
-		"vendor-dir": "content/plugins-mu/vendor"
-	},
 	"repositories": [
 		{
 			"type": "composer",
