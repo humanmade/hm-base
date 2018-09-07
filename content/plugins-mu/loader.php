@@ -13,9 +13,8 @@ if ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) {
 	return;
 }
 
-$hm_mu_plugins = array(
-	// load mu-plugins here.
-);
+// load mu-plugins here.
+$hm_mu_plugins = [];
 
 foreach ( $hm_mu_plugins as $file ) {
 	require_once WPMU_PLUGIN_DIR . '/' . $file;
@@ -54,21 +53,21 @@ add_action( 'pre_current_active_plugins', function () use ( $hm_mu_plugins ) {
 	$total_this_page = $GLOBALS['totals']['mustuse'];
 
 	if ( $GLOBALS['orderby'] ) {
-		uasort( $wp_list_table->items, array( $wp_list_table, '_order_callback' ) );
+		uasort( $wp_list_table->items, [ $wp_list_table, '_order_callback' ] );
 	}
 
 	// Force showing all plugins.
 	// See https://core.trac.wordpress.org/ticket/27110.
 	$plugins_per_page = $total_this_page;
 
-	$wp_list_table->set_pagination_args( array(
+	$wp_list_table->set_pagination_args( [
 		'total_items' => $total_this_page,
 		'per_page'    => $plugins_per_page,
-	) );
+	] );
 });
 
 add_filter( 'network_admin_plugin_action_links', function ( $actions, $plugin_file, $plugin_data, $context ) use ( $hm_mu_plugins ) {
-	if ( $context !== 'mustuse' || ! in_array( $plugin_file, $hm_mu_plugins ) ) {
+	if ( $context !== 'mustuse' || ! in_array( $plugin_file, $hm_mu_plugins, true ) ) {
 		return $actions;
 	}
 

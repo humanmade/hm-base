@@ -84,6 +84,12 @@ if ( ! class_exists( 'HM\\Autoloader\\Autoloader' ) ) {
 }
 
 if ( ! function_exists( 'HM\\Autoloader\\register_class_path' ) ) {
+	/**
+	 * Register our autoloader.
+	 *
+	 * @param string $prefix Prefix to validate against.
+	 * @param string $path Path to validate.
+	 */
 	function register_class_path( $prefix, $path ) {
 		$loader = new Autoloader( $prefix, $path );
 		spl_autoload_register( [ $loader, 'load' ] );

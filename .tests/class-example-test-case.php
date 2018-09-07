@@ -5,6 +5,8 @@
  * @package hm-base
  */
 
+namespace HMBase\Tests;
+
 /**
  * Class Example_Test_Case
  *
