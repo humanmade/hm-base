@@ -4,6 +4,7 @@
  *
  * @package hm-base
  */
+// phpcs:ignoreFile: this file will be removed to platform shortly.
 
 namespace HM\Autoloader;
 
