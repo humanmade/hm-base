@@ -17,6 +17,11 @@
 			"url": "https://wpackagist.org"
 		}
 	],
+	"config": {
+		"platform": {
+			"php": "7.0"
+		}
+	},
 	"extra": {
 		"installer-types": [
 			"library"
