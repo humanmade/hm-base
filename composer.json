@@ -1,22 +1,22 @@
 {
 	"name": "hm-base",
+	"type": "project",
 	"license": "GPL-3.0-or-later",
+	"require": {
+		"php": "^7.0",
+		"oomphinc/composer-installers-extender": "*"
+	},
+	"require-dev": {
+		"humanmade/coding-standards": "0.5.0"
+	},
 	"minimum-stability": "dev",
 	"prefer-stable": true,
-	"type": "project",
 	"repositories": [
 		{
 			"type": "composer",
 			"url": "https://wpackagist.org"
 		}
 	],
-	"require-dev": {
-		"humanmade/coding-standards": "0.5.0"
-	},
-	"require": {
-		"php": "^7.0",
-		"oomphinc/composer-installers-extender": "*"
-	},
 	"extra": {
 		"installer-types": [
 			"library"
