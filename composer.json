@@ -20,7 +20,7 @@
 			"library"
 		],
 		"installer-paths": {
-			"content/plugins-mu/{$name}/": [
+			"content/mu-plugins/{$name}/": [
 				"type:wordpress-muplugin"
 			],
 			"content/plugins/{$name}/": [

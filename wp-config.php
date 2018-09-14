@@ -96,8 +96,8 @@ defined( 'WP_CONTENT_DIR' )  or define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . 
 defined( 'WP_CONTENT_URL' )  or define( 'WP_CONTENT_URL', WP_HOME . '/content' );
 
 // Set path to MU Plugins.
-defined( 'WPMU_PLUGIN_DIR' ) or define( 'WPMU_PLUGIN_DIR', WP_CONTENT_DIR . '/plugins-mu' );
-defined( 'WPMU_PLUGIN_URL' ) or define( 'WPMU_PLUGIN_URL', WP_CONTENT_URL . '/plugins-mu' );
+defined( 'WPMU_PLUGIN_DIR' ) or define( 'WPMU_PLUGIN_DIR', WP_CONTENT_DIR . '/mu-plugins' );
+defined( 'WPMU_PLUGIN_URL' ) or define( 'WPMU_PLUGIN_URL', WP_CONTENT_URL . '/mu-plugins' );
 
 // Prevent editing of files through the admin.
 // Enable installing and upgrading plugins for dev sites.
