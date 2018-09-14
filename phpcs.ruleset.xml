@@ -21,4 +21,9 @@
 	<exclude-pattern>content/themes/index.php</exclude-pattern>
 	<exclude-pattern>content/plugins/index.php</exclude-pattern>
 	<exclude-pattern>/index.php</exclude-pattern>
+
+	<!-- Ignore inc directory rule with test files -->
+	<rule ref="HM.Files.NamespaceDirectoryName.NoIncDirectory">
+		<exclude-pattern>.tests/*</exclude-pattern>
+	</rule>
 </ruleset>
