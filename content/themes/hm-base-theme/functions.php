@@ -5,4 +5,4 @@
  * @package HM_Base
  */
 
-namespace HMBase\Theme;
+namespace HM_Base\Theme;
