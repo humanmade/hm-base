@@ -10,7 +10,5 @@ set -e
 
 # Run any build pieces you need here. For example:
 
-#npm install -g grunt
 #cd content/themes/projecttheme/
 #npm install
-#grunt

@@ -59,8 +59,6 @@ cp wp-config-local-sample.php wp-config-local.php
 
 HM Base follows the [standard structure](https://engineering.hmn.md/standards/structure/) for HM projects.
 
-Additionally, it sets the MU Plugins directory to `plugins-mu` instead of `mu-plugins` for consistency.
-
 ## Contribution guidelines ##
 
 see https://github.com/humanmade/hm-base/blob/master/CONTRIBUTING.md

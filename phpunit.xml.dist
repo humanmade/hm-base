@@ -10,7 +10,7 @@
 		<!-- Default test suite to run all tests -->
 		<testsuite>
 			<directory prefix="test-" suffix=".php">.tests</directory>
-			<!--<directory prefix="test-" suffix=".php">content/plugins-mu/my-plugin/tests</directory>-->
+			<!--<directory prefix="test-" suffix=".php">content/mu-plugins/my-plugin/tests</directory>-->
 		</testsuite>
 	</testsuites>
 </phpunit>
