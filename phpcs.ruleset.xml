@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<ruleset name="hm-base">
+	<description>WordPress rules for use with hm base</description>
+
+	<!-- Use HM Coding Standards -->
+	<rule ref="vendor/humanmade/coding-standards" />
+
+	<!-- Add PHPDoc rules -->
+	<rule ref="WordPress-Docs" />
+
+	<!-- Ignored directories -->
+	<exclude-pattern>/^.*/g</exclude-pattern>
+	<exclude-pattern>chassis/*</exclude-pattern>
+	<exclude-pattern>content/themes/twenty*/*</exclude-pattern>
+	<exclude-pattern>hm-platform/*</exclude-pattern>
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>wordpress/*</exclude-pattern>
+	<exclude-pattern>wp-config*</exclude-pattern>
+
+	<!-- Ignore specific index files -->
+	<exclude-pattern>content/themes/index.php</exclude-pattern>
+	<exclude-pattern>content/plugins/index.php</exclude-pattern>
+	<exclude-pattern>/index.php</exclude-pattern>
+
+	<!-- Ignore inc directory rule with test files -->
+	<rule ref="HM.Files.NamespaceDirectoryName.NoIncDirectory">
+		<exclude-pattern>.tests/*</exclude-pattern>
+	</rule>
+</ruleset>
