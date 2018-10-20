@@ -119,6 +119,7 @@ $hm_platform = array(
 	'ludicrousdb'     => true,
 	'memcached'       => HM_ENV_ARCHITECTURE !== 'ecs',
 	'redis'           => HM_ENV_ARCHITECTURE === 'ecs',
+	'xray'            => ! HM_DEV,
 );
 
 if ( $hm_platform['memcached'] && ! class_exists( 'Memcached' ) ) {
