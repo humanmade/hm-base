@@ -47,7 +47,7 @@ function register_block() {
 function render_block( $attributes = [] ) {
 	ob_start();
 
-	var_dump( $attributes );
+	echo wp_json_encode( $attributes );
 
 	return ob_get_clean();
 }
