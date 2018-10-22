@@ -1,11 +1,11 @@
 /**
  * Utility methods for use when generating build configuration objects.
  */
-const { join } = require( 'path' );
+const path = require( 'path' );
 const autoprefixer = require( 'autoprefixer' );
 const postcssFlexbugsFixes = require( 'postcss-flexbugs-fixes' );
 
-const { hmThemeDir, blockPluginDir } = require( './config' );
+const { config } = require( './config' );
 
 /**
  * Return the specified port on which to run the dev server.
@@ -13,20 +13,22 @@ const { hmThemeDir, blockPluginDir } = require( './config' );
 const devServerPort = () => parseInt( process.env.PORT, 10 ) || 9090;
 
 /**
- * Return the absolute file system path to a file within the content/ folder.
+ * Return the absolute file system path to a file within the project.
  * @param  {...String} relPaths Strings describing a file relative to the content/ folder.
  * @returns {String} An absolute file system path.
  */
-const filePath = ( ...relPaths ) => join( process.cwd(), ...relPaths );
+const filePath = ( ...relPaths ) => path.join( process.cwd(), ...relPaths );
+
+/**
+ * Return the relative file system path to a file within the project.
+ */
+const relPath = relPath => path.resolve( process.cwd(), relPath );
 
 /**
  * An array of file system paths in which to find first-party source code.
  * Used to limit Webpack transforms like Babel to just those folders containing our code.
  */
-const srcPaths = [
-	filePath( hmThemeDir, 'src' ),
-	filePath( blockPluginDir, 'src' ),
-];
+const srcPaths = config.map( ( { path } ) => filePath( path, 'src' ) );
 
 /**
  * Loader configuration objects which can be re-used in the dev and prod build config files.
@@ -93,6 +95,7 @@ const loaders = {
 
 module.exports = {
 	devServerPort,
+	relPath,
 	filePath,
 	srcPaths,
 	loaders,
