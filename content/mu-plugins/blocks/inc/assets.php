@@ -15,7 +15,7 @@ use HM\Asset_Loader;
  * Add hooks.
  */
 function bootstrap() {
-	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_assets', 1 );
+	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_editor_assets', 1 );
 }
 
 /**
@@ -67,4 +67,43 @@ function enqueue_assets() {
 
 	// Output an object with the blocks supported by the current theme.
 	wp_localize_script( $handle, 'HMCurrentThemeBlockSupport', get_supported_blocks() );
+}
+
+function enqueue_block_editor_assets() {
+	/**
+	 * Filter function to select only blocks whose names include the word "editor".
+	 */
+	$editor_blocks_only = function( $script_key ) {
+		return strpos( $script_key, 'editor' ) !== false;
+	};
+
+	$plugin_path  = plugin_dir_path( dirname( __FILE__ ) );
+	$plugin_url   = plugin_dir_url( dirname( __FILE__ ) );
+	$dev_manifest = $plugin_path . 'build/asset-manifest.json';
+
+	$loaded_dev_assets = Asset_Loader\enqueue_assets( $dev_manifest, [
+		'handle'    => 'artefact-editor-blocks',
+		'filter'    => $editor_blocks_only,
+		'scripts'   => [ 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ],
+	] );
+
+	if ( ! $loaded_dev_assets ) {
+		// Production mode. Manually enqueue script bundles.
+		wp_enqueue_script(
+			'artefact-editor-blocks',
+			$plugin_url . 'build/editor.bundle.js',
+			[ 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ],
+			filemtime( $plugin_path . '/build/editor.bundle.js' ),
+			true
+		);
+
+		wp_enqueue_style(
+			'artefact-editor-blocks',
+			$plugin_url . 'build/editor.bundle.css',
+			null,
+			filemtime( $plugin_path . 'build/editor-bundle.css' )
+		);
+	}
+
+	register_i18n_textdomain();
 }
