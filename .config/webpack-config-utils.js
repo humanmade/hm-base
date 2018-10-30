@@ -31,6 +31,22 @@ const relPath = relPath => path.resolve( process.cwd(), relPath );
 const srcPaths = config.map( ( { path } ) => filePath( path, 'src' ) );
 
 /**
+ * Scripts that can are bundled by WordPress.
+ *
+ * @TODO - do we want to force all scripts to use this same list? e.g. frontend scripts may wish to bundle their own.
+ */
+const wpExternalScripts = {
+	jquery: 'jQuery',
+	tinymce: 'tinymce',
+	moment: 'moment',
+	react: 'React',
+	'react-dom': 'ReactDOM',
+	wp: 'wp',
+	backbone: 'Backbone',
+	lodash: 'lodash',
+};
+
+/**
  * Loader configuration objects which can be re-used in the dev and prod build config files.
  */
 const loaders = {
@@ -99,4 +115,5 @@ module.exports = {
 	filePath,
 	srcPaths,
 	loaders,
+	wpExternalScripts,
 };

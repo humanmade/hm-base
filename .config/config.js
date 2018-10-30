@@ -8,7 +8,7 @@ const config = [
 		entry: {
 			theme: './src/theme.js',
 			single: './src/single.js',
-		}
+		},
 	},
 	{
 		name: 'blocks-plugin',
@@ -16,10 +16,9 @@ const config = [
 		entry: {
 			editor: './src/editor.js',
 			frontend: './src/frontend.js',
-		}
-	}
+		},
+	},
 ];
-
 
 module.exports = {
 	config,
