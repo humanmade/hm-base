@@ -3,6 +3,7 @@
  */
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 const UglifyJsPlugin = require( 'uglifyjs-webpack-plugin' );
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const BundleAnalyzerPlugin = require( 'webpack-bundle-analyzer' ).BundleAnalyzerPlugin;
 
 const { wpExternalScripts, filePath, relPath, loaders } = require( './webpack-config-utils' );
@@ -60,13 +61,16 @@ const prodConfig = config => ( {
 
 	// Optimize output bundle.
 	optimization: {
-		minimizer: [ new UglifyJsPlugin( {
-			uglifyOptions: {
-				output: {
-					comments: false,
+		minimizer: [
+			new UglifyJsPlugin( {
+				uglifyOptions: {
+					output: {
+						comments: false,
+					},
 				},
-			},
-		} ) ],
+			} ),
+			new OptimizeCSSAssetsPlugin({}),
+		],
 		noEmitOnErrors: true,
 		nodeEnv: 'production',
 	},

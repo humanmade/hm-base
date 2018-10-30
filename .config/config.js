@@ -6,8 +6,9 @@ const config = [
 		name: 'hm-base-theme',
 		path: `${themeDir}/hm-base-theme`,
 		entry: {
-			theme: './src/theme.js',
-			single: './src/single.js',
+			theme: './src/js/theme.js',
+			single: './src/js/single.js',
+			style: './src/scss/style.scss',
 		},
 	},
 	{
