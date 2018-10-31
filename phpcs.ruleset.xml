@@ -24,6 +24,6 @@
 
 	<!-- Ignore inc directory rule with test files -->
 	<rule ref="HM.Files.NamespaceDirectoryName.NoIncDirectory">
-		<exclude-pattern>.tests/*</exclude-pattern>
+		<exclude-pattern>tests/*</exclude-pattern>
 	</rule>
 </ruleset>
