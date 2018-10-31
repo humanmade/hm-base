@@ -4,7 +4,6 @@
 const { unlinkSync } = require( 'fs' );
 const ManifestPlugin = require( 'webpack-manifest-plugin' );
 const onExit = require( 'signal-exit' );
-const HardSourceWebpackPlugin = require( 'hard-source-webpack-plugin' );
 const webpack = require( 'webpack' );
 
 const { config } = require( './config' );
