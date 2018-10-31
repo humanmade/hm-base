@@ -3,7 +3,7 @@
  */
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 const UglifyJsPlugin = require( 'uglifyjs-webpack-plugin' );
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' );
 const BundleAnalyzerPlugin = require( 'webpack-bundle-analyzer' ).BundleAnalyzerPlugin;
 
 const { wpExternalScripts, filePath, relPath, loaders } = require( './webpack-config-utils' );

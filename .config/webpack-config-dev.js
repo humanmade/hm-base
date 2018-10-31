@@ -93,18 +93,6 @@ const devConfig = config => ( {
 	// Allow config to add plugins.
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		new HardSourceWebpackPlugin( {
-			cacheDirectory: filePath( `node_modules/.cache/${ config.name }/hard-source/[confighash]` ),
-			info: {
-				level: 'warn',
-			},
-			cachePrune: {
-				// Only delete caches older than two days.
-				maxAge: 2 * 24 * 60 * 60 * 1000,
-				// Only delete caches if cache folder is > 50mb.
-				sizeThreshold: 50 * 1024 * 1024,
-			},
-		} ),
 		...( config.plugins || [] ),
 	],
 } );
