@@ -74,7 +74,7 @@ const devConfig = config => ( {
 		headers: {
 			'Access-Control-Allow-Origin': '*',
 		},
-		hotOnly: true,
+		hot: true,
 		stats: {
 			all: false,
 			assets: true,
