@@ -99,7 +99,7 @@ jobs:
                 name: "Run Casper"
                 command: |
                     sleep 5
-                    casperjs test .tests/casperjs --url=http://localhost:8080 --log-level=debug
+                    casperjs test tests/casperjs --url=http://localhost:8080 --log-level=debug
 
             # Teardown
             - store_test_results:
