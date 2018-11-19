@@ -82,7 +82,7 @@ function enqueue_block_editor_assets() {
 	$dev_manifest = $plugin_path . 'build/asset-manifest.json';
 
 	$loaded_dev_assets = Asset_Loader\enqueue_assets( $dev_manifest, [
-		'handle'    => 'artefact-editor-blocks',
+		'handle'    => 'hm-base-blocks',
 		'filter'    => $editor_blocks_only,
 		'scripts'   => [ 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ],
 	] );
@@ -90,7 +90,7 @@ function enqueue_block_editor_assets() {
 	if ( ! $loaded_dev_assets ) {
 		// Production mode. Manually enqueue script bundles.
 		wp_enqueue_script(
-			'artefact-editor-blocks',
+			'hm-base-blocks',
 			$plugin_url . 'build/editor.bundle.js',
 			[ 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ],
 			filemtime( $plugin_path . '/build/editor.bundle.js' ),
@@ -98,7 +98,7 @@ function enqueue_block_editor_assets() {
 		);
 
 		wp_enqueue_style(
-			'artefact-editor-blocks',
+			'hm-base-blocks',
 			$plugin_url . 'build/editor.bundle.css',
 			null,
 			filemtime( $plugin_path . 'build/editor-bundle.css' )
