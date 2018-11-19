@@ -4,6 +4,7 @@
  *
  * @package HM_Base
  */
+
 ?>
 
 <?php wp_footer(); ?>

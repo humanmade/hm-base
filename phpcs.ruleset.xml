@@ -1,17 +1,29 @@
 <?xml version="1.0"?>
-<ruleset>
-    <!-- Use HM Coding Standards -->
-    <rule ref="vendor/humanmade/coding-standards">
-	    <!-- Don't restrict namespaced functions to `namespace.php` -->
-        <exclude name="HM.Files.FunctionFileName" />
+<ruleset name="hm-base">
+	<description>WordPress rules for use with hm base</description>
 
-        <!-- Don't restrict namespace to `inc/` directory -->
-        <exclude name="HM.Files.NamespaceDirectoryName" />
+	<!-- Use HM Coding Standards -->
+	<rule ref="vendor/humanmade/coding-standards" />
 
-        <!-- Disable check from phpcbf - as its fixing things that should be allowed. -->
-        <exclude phpcbf-only="true" name="PEAR.Functions.FunctionCallSignature"/>
-    </rule>
+	<!-- Add PHPDoc rules -->
+	<rule ref="WordPress-Docs" />
 
-    <file>./content/themes/hm-base-theme</file>
-    <file>./content/mu-plugins/blocks</file>
+	<!-- Ignored directories -->
+	<exclude-pattern>/^.*/g</exclude-pattern>
+	<exclude-pattern>chassis/*</exclude-pattern>
+	<exclude-pattern>content/themes/twenty*/*</exclude-pattern>
+	<exclude-pattern>hm-platform/*</exclude-pattern>
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>wordpress/*</exclude-pattern>
+	<exclude-pattern>wp-config*</exclude-pattern>
+
+	<!-- Ignore specific index files -->
+	<exclude-pattern>content/themes/index.php</exclude-pattern>
+	<exclude-pattern>content/plugins/index.php</exclude-pattern>
+	<exclude-pattern>/index.php</exclude-pattern>
+
+	<!-- Ignore inc directory rule with test files -->
+	<rule ref="HM.Files.NamespaceDirectoryName.NoIncDirectory">
+		<exclude-pattern>tests/*</exclude-pattern>
+	</rule>
 </ruleset>
