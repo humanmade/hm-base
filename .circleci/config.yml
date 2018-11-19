@@ -44,7 +44,6 @@ jobs:
                 name: "Install phpcs"
                 command: |
                     mkdir ~/php-codesniffer && curl -L https://github.com/squizlabs/PHP_CodeSniffer/archive/master.tar.gz | tar xz --strip-components=1 -C ~/php-codesniffer
-                    mkdir ~/wordpress-coding-standards && curl -L https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/archive/master.tar.gz | tar xz --strip-components=1 -C ~/wordpress-coding-standards
 
             # Install phpunit
             - run:
@@ -55,6 +54,12 @@ jobs:
 
             # Check out the code.
             - checkout
+
+            # Install Composer dependencies
+            - run:
+                name: "Install Composer libraries"
+                command: composer install
+
             - run:
                 name: "Check out submodules"
                 command: |
@@ -83,9 +88,7 @@ jobs:
             # Run phpcs
             - run:
                 name: "Run phpcs"
-                command: |
-                    ~/php-codesniffer/bin/phpcs --config-set installed_paths ../wordpress-coding-standards
-                    ~/php-codesniffer/bin/phpcs -p --extensions=php --standard=./codesniffer-ruleset.xml ./ -v -q
+                command: ~/php-codesniffer/bin/phpcs -p --extensions=php --standard=./phpcs.ruleset.xml ./ -v -q
 
             # Run Casper tests
             - run:
@@ -96,7 +99,7 @@ jobs:
                 name: "Run Casper"
                 command: |
                     sleep 5
-                    casperjs test .tests/casperjs --url=http://localhost:8080 --log-level=debug
+                    casperjs test tests/casperjs --url=http://localhost:8080 --log-level=debug
 
             # Teardown
             - store_test_results:
