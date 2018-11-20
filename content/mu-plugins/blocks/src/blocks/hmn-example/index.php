@@ -5,7 +5,7 @@
  * @package HM
  */
 
-namespace HM\Gutenberg_Blocks\Example;
+namespace HM\Gutenberg_Blocks\HmnExample;
 
 /**
  * Set up hooks.

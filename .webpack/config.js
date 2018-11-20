@@ -16,7 +16,7 @@ const config = [
 		path: `${muPluginDir}/blocks`,
 		entry: {
 			editor: './src/editor.js',
-			frontend: './src/frontend.js',
+			style: './src/style.scss',
 		},
 	},
 ];

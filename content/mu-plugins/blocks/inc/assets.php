@@ -8,55 +8,32 @@
 namespace HM\Gutenberg_Blocks\Assets;
 
 use const HM\Gutenberg_Blocks\ROOT_DIR;
-use function HM\Gutenberg_Blocks\Helpers\get_supported_blocks;
+use HM\Gutenberg_Blocks\Helpers as Helpers;
 use HM\Asset_Loader;
 
 /**
  * Add hooks.
  */
 function bootstrap() {
-	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_editor_assets', 1 );
+	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_editor_assets', 1 );
 }
 
 /**
- * Enqueue the block JS and CSS assets depending on the current asset building mode.
+ * Enqueue the block JS and CSS assets.
  */
-function enqueue_assets() {
-	// Find out whether we are in development or build mode.
-	$is_dev_mode = Asset_Loader\get_webpack_dev_server_assets_list( ROOT_DIR );
+function enqueue_editor_assets() {
+	Asset_Loader\enqueue_script([
+		'name' => 'editor',
+		'handle' => 'hm-blocks-editor',
+		'deps' => [ 'wp-blocks', 'wp-element', 'wp-url', 'wp-components', 'wp-editor' ],
+		'build_dir' => plugin_dir_path( ROOT_DIR ) . '/build',
+	] );
 
-	if ( $is_dev_mode ) {
-		// Enqueue the development assets from the Webpack dev server.
-		Asset_Loader\enqueue_webpack_dev_server_assets(
-			ROOT_DIR,
-			[
-				'handle'  => 'hm-gb-blocks-dev',
-				'scripts' => [ 'wp-blocks', 'wp-element', 'wp-url', 'wp-components', 'wp-editor' ],
-			]
-		);
-
-		// Attach JS dependencies to the Core editor script.
-		$handle = 'wp-editor';
-	} else {
-		// Enqueue the build versions of the block JS and CSS.
-		wp_enqueue_script(
-			'hm-gb-blocks',
-			plugins_url( '/build/index.js', dirname( __FILE__ ) ),
-			[ 'wp-blocks', 'wp-element', 'wp-url', 'wp-components', 'wp-editor' ],
-			Asset_Loader\get_asset_version(),
-			true
-		);
-
-		wp_enqueue_style(
-			'hm-gb-blocks',
-			plugins_url( '/build/style.css', dirname( __FILE__ ) ),
-			[],
-			Asset_Loader\get_asset_version()
-		);
-
-		// Attach JS dependencies to the main blocks file.
-		$handle = 'hm-gb-blocks';
-	}
+	Asset_Loader\enqueue_style([
+		'name' => 'style',
+		'handle' => 'hm-blocks-editor',
+		'build_dir' => plugin_dir_path( ROOT_DIR ) . '/build',
+	] );
 
 	// Deregister the block library theme styles.
 	// This cannot easily be dequeued or deregistered as it is a dependency of other styles.
@@ -66,44 +43,5 @@ function enqueue_assets() {
 	wp_register_style( 'wp-block-library-theme', '' );
 
 	// Output an object with the blocks supported by the current theme.
-	wp_localize_script( $handle, 'HMCurrentThemeBlockSupport', get_supported_blocks() );
-}
-
-function enqueue_block_editor_assets() {
-	/**
-	 * Filter function to select only blocks whose names include the word "editor".
-	 */
-	$editor_blocks_only = function( $script_key ) {
-		return strpos( $script_key, 'editor' ) !== false;
-	};
-
-	$plugin_path  = plugin_dir_path( dirname( __FILE__ ) );
-	$plugin_url   = plugin_dir_url( dirname( __FILE__ ) );
-	$dev_manifest = $plugin_path . 'build/asset-manifest.json';
-
-	$loaded_dev_assets = Asset_Loader\enqueue_assets( $dev_manifest, [
-		'handle'    => 'hm-base-blocks',
-		'filter'    => $editor_blocks_only,
-		'scripts'   => [ 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ],
-	] );
-
-	if ( ! $loaded_dev_assets ) {
-		// Production mode. Manually enqueue script bundles.
-		wp_enqueue_script(
-			'hm-base-blocks',
-			$plugin_url . 'build/editor.bundle.js',
-			[ 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ],
-			filemtime( $plugin_path . '/build/editor.bundle.js' ),
-			true
-		);
-
-		wp_enqueue_style(
-			'hm-base-blocks',
-			$plugin_url . 'build/editor.bundle.css',
-			null,
-			filemtime( $plugin_path . 'build/editor-bundle.css' )
-		);
-	}
-
-	register_i18n_textdomain();
+	wp_localize_script( 'hm-blocks-editor', 'HMCurrentThemeBlockSupport', Helpers\get_supported_blocks() );
 }
