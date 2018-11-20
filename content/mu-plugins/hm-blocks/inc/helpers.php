@@ -16,15 +16,3 @@ namespace HM\Gutenberg_Blocks\Helpers;
 function is_front_end_query() {
 	return ! is_null( $GLOBALS['wp_query']->query );
 }
-
-/**
- * Get Red Bull Media Hub blocks that are currently enabled.
- *
- * Can also be filtered using the filter `hm_blocks`.
- *
- * @return array Array of block names.
- */
-function get_supported_blocks() {
-	$theme_support = get_theme_support( 'hm-blocks' );
-	return apply_filters( 'hm_blocks', isset( $theme_support[0] ) ? $theme_support[0] : [] );
-}
