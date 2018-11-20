@@ -5,14 +5,11 @@ import * as ExampleBlock from './blocks/hmn-example';
 
 const { registerBlockType } = wp.blocks;
 
-// Value of 'hm-blocks' theme supoort passed using localise script.
-const { HMCurrentThemeBlockSupport: enabledBlocks = [] } = window;
-
 // Map of block name to block options.
 const availableBlocks = {
 	[ExampleBlock.name]: ExampleBlock.options,
 }
 
-// Loop through enabled blocks, filter to check they exist and register the the.
-enabledBlocks.filter( name => !! availableBlocks[ name ] )
+// Loop through available blocks and register them.
+Object.keys( availableBlocks )
 	.forEach( name => registerBlockType( name, availableBlocks[ name ] ) );

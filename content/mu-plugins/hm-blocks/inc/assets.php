@@ -34,14 +34,4 @@ function enqueue_editor_assets() {
 		'handle' => 'hm-blocks-editor',
 		'build_dir' => ROOT_DIR . '/build',
 	] );
-
-	// Deregister the block library theme styles.
-	// This cannot easily be dequeued or deregistered as it is a dependency of other styles.
-	// Work around this by registering a new style with a blank src.
-	// The styles from this file have been copied into the base theme editor.scss (and modified).
-	wp_deregister_style( 'wp-block-library-theme' );
-	wp_register_style( 'wp-block-library-theme', '' );
-
-	// Output an object with the blocks supported by the current theme.
-	wp_localize_script( 'hm-blocks-editor', 'HMCurrentThemeBlockSupport', Helpers\get_supported_blocks() );
 }
