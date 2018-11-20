@@ -8,9 +8,8 @@ const { __ } = wp.i18n;
 export const name = 'hmn/example';
 
 export const options = {
-	// Extend the default block.
 	...defaultOptions,
-	description: __( 'Just a little test.' ),
+	title: __( 'HM Example' ),
+	description: __( 'Just a little example plugin.' ),
 	edit,
-	title: __( 'HM Test' ),
 }

@@ -14,7 +14,7 @@ namespace HM\Gutenberg_Blocks\Helpers;
  * @return bool Whether we're in the admin or on the front end.
  */
 function is_front_end_query() {
-	return ! empty( $GLOBALS['wp_query']->query );
+	return ! is_null( $GLOBALS['wp_query']->query );
 }
 
 /**

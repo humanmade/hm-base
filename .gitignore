@@ -23,3 +23,5 @@ ehthumbs.db
 Thumbs.db
 ._*
 .idea/
+/content/themes/hm-base-theme/build
+/content/mu-plugins/blocks/build

@@ -14,7 +14,9 @@ if ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) {
 }
 
 // load mu-plugins here.
-$hm_mu_plugins = [];
+$hm_mu_plugins = [
+	'blocks/blocks.php',
+];
 
 foreach ( $hm_mu_plugins as $file ) {
 	require_once WPMU_PLUGIN_DIR . '/' . $file;

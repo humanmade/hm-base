@@ -1,7 +1,7 @@
 /* global wp */
 
 // Import the blocks.
-import * as ExampleBlock from './blocks/example';
+import * as ExampleBlock from './blocks/hmn-example';
 
 const { registerBlockType } = wp.blocks;
 
