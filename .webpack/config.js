@@ -12,8 +12,8 @@ const config = [
 		},
 	},
 	{
-		name: 'blocks-plugin',
-		path: `${muPluginDir}/blocks`,
+		name: 'hm-blocks-plugin',
+		path: `${muPluginDir}/hm-blocks`,
 		entry: {
 			editor: './src/editor.js',
 			style: './src/style.scss',

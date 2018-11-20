@@ -1,0 +1,6 @@
+{
+  "editor.js": "http://localhost:9091/content/mu-plugins/hm-blocks/build/editor.js",
+  "editor.js.map": "http://localhost:9091/content/mu-plugins/hm-blocks/build/editor.js.map",
+  "style.js": "http://localhost:9091/content/mu-plugins/hm-blocks/build/style.js",
+  "style.js.map": "http://localhost:9091/content/mu-plugins/hm-blocks/build/style.js.map"
+}

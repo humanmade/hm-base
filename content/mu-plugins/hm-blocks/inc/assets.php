@@ -26,13 +26,13 @@ function enqueue_editor_assets() {
 		'name' => 'editor',
 		'handle' => 'hm-blocks-editor',
 		'deps' => [ 'wp-blocks', 'wp-element', 'wp-url', 'wp-components', 'wp-editor' ],
-		'build_dir' => plugin_dir_path( ROOT_DIR ) . '/build',
+		'build_dir' => ROOT_DIR . '/build',
 	] );
 
 	Asset_Loader\enqueue_style([
 		'name' => 'style',
 		'handle' => 'hm-blocks-editor',
-		'build_dir' => plugin_dir_path( ROOT_DIR ) . '/build',
+		'build_dir' => ROOT_DIR . '/build',
 	] );
 
 	// Deregister the block library theme styles.
