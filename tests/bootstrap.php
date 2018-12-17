@@ -22,7 +22,7 @@ require_once $_tests_dir . '/includes/functions.php';
 /**
  * Disable update checks for core, themes, and plugins.
  *
- * No need for this work to happen when spinning up tests.
+ * There is no need for this work to happen when spinning up tests.
  */
 tests_add_filter( 'muplugins_loaded', function() {
 	remove_action( 'wp_maybe_auto_update', 'wp_maybe_auto_update' );
@@ -37,6 +37,19 @@ tests_add_filter( 'muplugins_loaded', function() {
 
 	remove_action( 'wp_version_check', 'wp_version_check' );
 } );
+
+/**
+ * Set our permalink structure to always match production in tests.
+ *
+ * This prevent issues with permalink being set incorrectly, which affects any
+ * tests that rely on parsing or setting URLs. Update if your structure does not
+ * match the default.
+ *
+ * @return string.
+ */
+tests_add_filter( 'pre_option_permalink_structure', function() {
+	return '%year%/%monthnum%/%day%/%postname%';
+}, 99 ); // Ensure this fires late, after other filtering has occurred.
 
 /**
  * Re-map the default `/uploads` folder with our own `/test-uploads` for tests.
