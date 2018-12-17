@@ -6,6 +6,10 @@
 	convertNoticesToExceptions="true"
 	convertWarningsToExceptions="true"
 	>
+	<!-- Setup a constant for us to easily track when tests are running -->
+	<php>
+		<const name="RUNNING_UNIT_TESTS" value="true" />
+	</php>
 	<testsuites>
 		<!-- Default test suite to run all tests -->
 		<testsuite>
