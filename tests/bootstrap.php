@@ -19,5 +19,24 @@ if ( ! file_exists( $_tests_dir . '/includes/functions.php' ) ) {
 // Give access to tests_add_filter() function.
 require_once $_tests_dir . '/includes/functions.php';
 
+/**
+ * Disable update checks for core, themes, and plugins.
+ *
+ * No need for this work to happen when spinning up tests.
+ */
+tests_add_filter( 'muplugins_loaded', function() {
+	remove_action( 'wp_maybe_auto_update', 'wp_maybe_auto_update' );
+	remove_action( 'wp_update_themes', 'wp_update_themes' );
+	remove_action( 'wp_update_plugins', 'wp_update_plugins' );
+
+	remove_action( 'admin_init', '_maybe_update_core' );
+	remove_action( 'admin_init', 'wp_maybe_auto_update' );
+	remove_action( 'admin_init', 'wp_auto_update_core' );
+	remove_action( 'admin_init', '_maybe_update_themes' );
+	remove_action( 'admin_init', '_maybe_update_plugins' );
+
+	remove_action( 'wp_version_check', 'wp_version_check' );
+} );
+
 // Start up the WP testing environment.
 require $_tests_dir . '/includes/bootstrap.php';
