@@ -1,0 +1,2 @@
+ssh: vagrant:default
+path: /chassis/wordpress
