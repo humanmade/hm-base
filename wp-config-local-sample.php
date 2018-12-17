@@ -30,6 +30,11 @@ defined( 'WP_DEBUG_LOG' ) or define( 'WP_DEBUG_LOG', true );
 defined( 'WP_DEBUG_DISPLAY' ) or define( 'WP_DEBUG_DISPLAY', true );
 
 /**
+ * Save database queries for debugging purposes.
+ */
+defined( 'SAVEQUERIES' ) or define( 'SAVEQUERIES', true );
+
+/**
  * Force scripts into dev mode.
  */
 defined( 'SCRIPT_DEBUG' ) or define( 'SCRIPT_DEBUG', true );
