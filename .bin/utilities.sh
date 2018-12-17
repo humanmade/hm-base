@@ -1,4 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
 #
 # Utility functions to aid with setting up a local installation.
 
