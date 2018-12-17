@@ -56,7 +56,9 @@ tests_add_filter( 'pre_option_permalink_structure', function() {
  *
  * WordPress core runs a method (scan_user_uploads) on the first instance of
  * `WP_UnitTestCase`. This method scans every single folder and file in the
- * uploads directory.
+ * uploads directory. This becomes a problem with any significant quantity of
+ * uploads having been pulled into a local environment and has been
+ * known to take more than 5 minutes to run on certain local installs.
  *
  * This filter prevents any potential issues arising from running imports
  * locally and speeds up overall test execution. We do this by adding a unique
