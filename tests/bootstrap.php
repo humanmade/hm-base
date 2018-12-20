@@ -49,7 +49,7 @@ tests_add_filter( 'muplugins_loaded', function() {
  */
 tests_add_filter( 'pre_option_permalink_structure', function() {
 	return '%year%/%monthnum%/%day%/%postname%';
-}, 99 ); // Ensure this fires late, after other filtering has occurred.
+}, 99 );
 
 /**
  * Re-map the default `/uploads` folder with our own `/test-uploads` for tests.
@@ -71,7 +71,7 @@ tests_add_filter( 'upload_dir', function( $dir ) {
 		}
 	} );
 	return $dir;
-}, 20 ); // Ensure this fires late, after other filtering has occurred.
+}, 20 );
 
 // Start up the WP testing environment.
 require $_tests_dir . '/includes/bootstrap.php';
