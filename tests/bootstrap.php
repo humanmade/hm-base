@@ -41,7 +41,7 @@ tests_add_filter( 'muplugins_loaded', function() {
 /**
  * Set our permalink structure to always match production in tests.
  *
- * This prevent issues with permalink being set incorrectly, which affects any
+ * This prevents issues with permalink being set incorrectly, which affects any
  * tests that rely on parsing or setting URLs. Update if your structure does not
  * match the default.
  *
