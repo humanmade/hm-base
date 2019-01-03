@@ -1,15 +1,19 @@
 <phpunit
-	bootstrap=".tests/bootstrap.php"
+	bootstrap="tests/bootstrap.php"
 	backupGlobals="false"
 	colors="true"
 	convertErrorsToExceptions="true"
 	convertNoticesToExceptions="true"
 	convertWarningsToExceptions="true"
 	>
+	<!-- Setup a constant for us to easily track when tests are running -->
+	<php>
+		<const name="RUNNING_UNIT_TESTS" value="true" />
+	</php>
 	<testsuites>
 		<!-- Default test suite to run all tests -->
 		<testsuite>
-			<directory prefix="test-" suffix=".php">.tests</directory>
+			<directory prefix="test-" suffix=".php">tests</directory>
 			<!--<directory prefix="test-" suffix=".php">content/mu-plugins/my-plugin/tests</directory>-->
 		</testsuite>
 	</testsuites>

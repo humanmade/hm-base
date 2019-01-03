@@ -27,10 +27,6 @@ jobs:
                     sudo service mysql status || sudo service mysql start
                     sudo docker-php-ext-install mysqli
 
-            - run:
-                name: "Install Casper"
-                command: sudo npm install -g casperjs
-
             # Install memcache
             - run:
                 name: "Install memcache"
@@ -89,17 +85,6 @@ jobs:
             - run:
                 name: "Run phpcs"
                 command: ~/php-codesniffer/bin/phpcs -p --extensions=php --standard=./phpcs.ruleset.xml ./ -v -q
-
-            # Run Casper tests
-            - run:
-                name: "Set up PHP server"
-                command: php -S 127.0.0.1:8080
-                background: true
-            - run:
-                name: "Run Casper"
-                command: |
-                    sleep 5
-                    casperjs test .tests/casperjs --url=http://localhost:8080 --log-level=debug
 
             # Teardown
             - store_test_results:
