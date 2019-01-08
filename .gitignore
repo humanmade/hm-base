@@ -23,3 +23,7 @@ ehthumbs.db
 Thumbs.db
 ._*
 .idea/
+
+### Theme/Plugin build directories.
+/content/themes/hm-base-theme/build
+/content/mu-plugins/hm-blocks/build

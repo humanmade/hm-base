@@ -1,0 +1,10 @@
+{
+  "extends": "humanmade",
+  "rules": {
+    "no-debugger": "warn",
+    "react/react-in-jsx-scope": "off"
+  },
+  "globals": {
+    "wp": true
+  }
+}
