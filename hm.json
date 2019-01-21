@@ -1,0 +1,52 @@
+{
+  "repository": "https://github.com/humanmade/platform-demo",
+  "plugins": {
+    "elasticpress": {
+      "enabled": true
+    },
+    "related-posts": {
+      "enabled": true
+    },
+    "workflows": {
+      "enabled": true
+    },
+    "seo": {
+      "enabled": true
+    },
+    "platform-ui": {
+      "enabled": true
+    },
+    "xray": {
+      "enabled": true
+    },
+    "tachyon": {
+      "enabled": true
+    },
+    "rekognition": {
+      "enabled": true,
+      "settings": {
+        "labels": true,
+        "faces": false,
+        "text": false,
+        "celebrities": true
+      }
+    },
+    "bylines": {
+      "enabled": true
+    },
+    "google-tag-manager": {
+      "enabled": true
+    },
+    "smart-media": {
+      "enabled": true,
+      "settings": {
+        "justified-library": true,
+        "cropper": true,
+        "retina": true
+      }
+    },
+    "require-login": {
+      "enabled": true
+    }
+  }
+}

@@ -5,10 +5,17 @@
 #
 # https://docs.humanmade.com/beta/cloud/build-scripts/
 
+ROOT_DIR=`pwd`
+
 # Fail on any errors.
 set -e
 
-# Run any build pieces you need here. For example:
+# Install hm-platform deps
+cd content/hm-platform
+composer install
+cd "$ROOT_DIR"
+
+# Run any other build pieces you need here. For example:
 
 #cd content/themes/projecttheme/
 #npm install
