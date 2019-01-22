@@ -37,10 +37,10 @@ git commit -m 'Update hm-platform to latest'
 
 # Update WordPress.
 cd wordpress
-git checkout 5.0.1
+git checkout 5.0.3
 cd ..
 git add wordpress
-git commit -m 'Update WordPress to 5.0.1'
+git commit -m 'Update WordPress to 5.0.3'
 
 # Remove the hm-base remote:
 git remote rm origin
