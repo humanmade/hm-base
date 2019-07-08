@@ -95,10 +95,6 @@ defined( 'WP_HOME' )         or define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HO
 defined( 'WP_CONTENT_DIR' )  or define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
 defined( 'WP_CONTENT_URL' )  or define( 'WP_CONTENT_URL', WP_HOME . '/content' );
 
-// Set path to MU Plugins.
-defined( 'WPMU_PLUGIN_DIR' ) or define( 'WPMU_PLUGIN_DIR', WP_CONTENT_DIR . '/mu-plugins' );
-defined( 'WPMU_PLUGIN_URL' ) or define( 'WPMU_PLUGIN_URL', WP_CONTENT_URL . '/mu-plugins' );
-
 // Prevent editing of files through the admin.
 // Enable installing and upgrading plugins for dev sites.
 define( 'DISALLOW_FILE_EDIT', true );
