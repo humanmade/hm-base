@@ -28,8 +28,6 @@ if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
 	include( dirname( __FILE__ ) . '/wp-config-local.php' );
 
 	defined( 'HM_DEV' ) or define( 'HM_DEV', true );
-	defined( 'WP_DEBUG' ) or define( 'WP_DEBUG', true );
-	defined( 'SAVEQUERIES' ) or define( 'SAVEQUERIES', true );
 
 } elseif ( file_exists( '/var/cloudformation-vars.php' ) ) {
 
